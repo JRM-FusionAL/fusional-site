@@ -1,0 +1,77 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "AIOS Setup Service | FusionAL",
+  description:
+    "Done-for-you Claude Code AI operating systems for solopreneurs and small teams.",
+};
+
+const tiers = [
+  {
+    name: "DIY Template",
+    price: "$97",
+    body: "The AIOS template repo: cadence, routines, memory system, and guardrails, documented for self-install on Claude Code.",
+  },
+  {
+    name: "Guided Setup",
+    price: "$497",
+    body: "Template plus a working session: installed on your machine, tuned to your business, first routines live before we hang up.",
+  },
+  {
+    name: "White Glove",
+    price: "$1,497",
+    body: "Full build-out: custom routines, integrations with your calendar, comms and task stack, and 30 days of iteration support.",
+  },
+];
+
+export default function AIOS() {
+  return (
+    <>
+      <section className="relative overflow-hidden border-b border-line">
+        <Image
+          src="/assets/aios-hero.png"
+          alt=""
+          width={1376}
+          height={768}
+          priority
+          className="absolute inset-0 h-full w-full object-cover opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
+        <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 py-24">
+          <p className="eyebrow mb-4">For solo operators & small teams</p>
+          <h1 className="max-w-2xl text-5xl font-bold leading-tight md:text-6xl">
+            An AI operating system, installed for you.
+          </h1>
+          <p className="mt-6 max-w-xl text-lg text-paper/80">
+            Stop prompting from scratch. Get a Claude Code setup with cadence,
+            memory, routines, and guardrails that runs your day with you.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="grid gap-8 md:grid-cols-3">
+          {tiers.map((t) => (
+            <div
+              key={t.name}
+              className="rounded-2xl border border-line bg-ink-2 p-8"
+            >
+              <p className="eyebrow">{t.name}</p>
+              <p className="mt-3 font-display text-4xl font-bold text-gold">
+                {t.price}
+              </p>
+              <p className="mt-4 leading-relaxed text-paper/60">{t.body}</p>
+            </div>
+          ))}
+        </div>
+        <a
+          href="mailto:jonathanmelton.fusional@gmail.com?subject=AIOS%20setup"
+          className="mt-12 inline-block rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
+        >
+          Get set up
+        </a>
+      </section>
+    </>
+  );
+}

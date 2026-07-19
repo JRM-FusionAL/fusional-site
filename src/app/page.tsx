@@ -1,65 +1,129 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const products = [
+  {
+    href: "/ghost-ai",
+    title: "Ghost AI",
+    tagline: "Architecture planning canvas with built-in AI governance",
+    detail:
+      "Claude-native collaborative planning for regulated industries. Every AI action passes through a FusionAL governance gateway — auditable, policy-enforced, self-hosted.",
+    image: "/assets/ghost-hero.png",
+    cta: "For regulated teams",
+  },
+  {
+    href: "/aios",
+    title: "AIOS Setup Service",
+    tagline: "A done-for-you AI operating system on Claude Code",
+    detail:
+      "Cadence, routines, memory, and guardrails — installed and tuned for solopreneurs and small teams. From a $97 DIY template to full white-glove setup.",
+    image: "/assets/aios-hero.png",
+    cta: "For solo operators",
+  },
+  {
+    href: "/tools",
+    title: "Open Source",
+    tagline: "The tooling behind it all, in the open",
+    detail:
+      "agentstack-init, FusionAL-Recall, mcp-consulting-kit, and the FusionAL governance gateway. Battle-tested on our own stack first.",
+    image: "/assets/tools-gates.png",
+    cta: "On GitHub",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <section className="relative overflow-hidden border-b border-line">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/assets/hero-fusional.png"
+          alt=""
+          width={2016}
+          height={864}
           priority
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-40">
+          <p className="eyebrow mb-4">Governed AI infrastructure</p>
+          <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
+            AI that passes through the gate.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 max-w-xl text-lg text-paper/80">
+            FusionAL builds governance gateways, planning tools, and operating
+            systems that let regulated teams and solo operators run AI with
+            confidence — self-hosted, auditable, yours.
           </p>
+          <div className="mt-10 flex gap-4">
+            <Link
+              href="/ghost-ai"
+              className="rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
+            >
+              Explore Ghost AI
+            </Link>
+            <Link
+              href="/aios"
+              className="rounded-full border border-paper/30 px-6 py-3 font-medium transition-colors hover:border-gold hover:text-gold"
+            >
+              Get an AIOS
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <p className="eyebrow mb-4">What we build</p>
+        <h2 className="mb-16 max-w-2xl text-3xl font-bold md:text-4xl">
+          Two products, one governed stack.
+        </h2>
+        <div className="grid gap-8 md:grid-cols-3">
+          {products.map((p) => (
+            <Link
+              key={p.href}
+              href={p.href}
+              className="group overflow-hidden rounded-2xl border border-line bg-ink-2 transition-colors hover:border-gold"
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <p className="eyebrow mb-2">{p.cta}</p>
+                <h3 className="text-xl font-bold">{p.title}</h3>
+                <p className="mt-1 text-sm font-medium text-paper/70">
+                  {p.tagline}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-paper/60">
+                  {p.detail}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24">
+          <p className="eyebrow">Start a conversation</p>
+          <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
+            Running AI in a regulated environment — or drowning solo?
+          </h2>
+          <p className="max-w-xl text-paper/70">
+            Engagements from $97 templates to $15K governed deployments. One
+            builder, no handoffs.
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:jonathanmelton.fusional@gmail.com"
+            className="rounded-full bg-gold px-6 py-3 font-medium text-ink transition-colors hover:bg-molten"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            jonathanmelton.fusional@gmail.com
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
