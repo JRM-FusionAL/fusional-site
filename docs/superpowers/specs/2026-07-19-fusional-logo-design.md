@@ -20,8 +20,11 @@ A symbol + wordmark logo system for FusionAL (MCP governance gateway for regulat
 3. Symbol alone — favicon, avatars, GitHub org, PyPI.
 - Default on ink black; white/ink variants for light backgrounds.
 
-## Slogan (chosen)
-**"Every tool. One gate. Zero surprises."**
+## Slogan (chosen — revised 2026-07-20)
+**"Keep it flowing while always knowing."**
+Descriptor line: **"FusionAL — The Governance Gate"**
+Concept: molten flow passes through the gate uninterrupted; the white-hot fusion point is an all-seeing eye — nothing is dammed, nothing is unseen.
+(Superseded: "Every tool. One gate. Zero surprises.")
 
 ## Deliverables
 1. Logo concepts sheet (multiple fusion-node interpretations).
