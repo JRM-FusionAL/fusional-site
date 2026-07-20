@@ -58,8 +58,14 @@ export default function RootLayout({
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3 sm:px-6 sm:py-4">
             <Link
               href="/"
-              className="font-display text-lg font-bold tracking-tight"
+              className="flex items-center gap-2 font-display text-lg font-bold tracking-tight"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/fusional-mark.svg"
+                alt=""
+                className="h-6 w-6"
+              />
               Fusion<span className="text-molten">AL</span>
             </Link>
             <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-paper/80 sm:gap-x-6">

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- FusionAL mark: gold + molten rings fuse at the all-seeing node.
+       Draw order makes molten pass over gold at the lower crossing;
+       the node covers the upper crossing. -->
+  <circle cx="60" cy="50" r="24" fill="none" stroke="#C9A227" stroke-width="8"/>
+  <circle cx="40" cy="50" r="24" fill="none" stroke="#FF4D00" stroke-width="8"/>
+  <circle cx="50" cy="28.2" r="7.5" fill="#C9A227"/>
+  <circle cx="50" cy="28.2" r="4.5" fill="#FFFFFF"/>
+</svg>
