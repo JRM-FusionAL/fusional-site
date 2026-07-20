@@ -14,9 +14,26 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fusional.dev"),
   title: "FusionAL — Governed AI for Regulated Industries",
   description:
     "MCP governance gateways, Ghost AI architecture planning, and done-for-you AI operating systems. Built by JRM FusionAL.",
+  openGraph: {
+    title: "FusionAL — Governed AI for Regulated Industries",
+    description:
+      "MCP governance gateways, Ghost AI architecture planning, and done-for-you AI operating systems.",
+    url: "https://fusional.dev",
+    siteName: "FusionAL",
+    images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FusionAL — Governed AI for Regulated Industries",
+    description:
+      "MCP governance gateways, Ghost AI planning, and done-for-you AI operating systems.",
+    images: ["/assets/og-card.jpg"],
+  },
 };
 
 const nav = [
@@ -38,26 +55,26 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <header className="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3 sm:px-6 sm:py-4">
             <Link
               href="/"
               className="font-display text-lg font-bold tracking-tight"
             >
               Fusion<span className="text-molten">AL</span>
             </Link>
-            <nav className="flex items-center gap-6 text-sm text-paper/80">
+            <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-paper/80 sm:gap-x-6">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="transition-colors hover:text-gold"
+                  className="whitespace-nowrap transition-colors hover:text-gold"
                 >
                   {item.label}
                 </Link>
               ))}
               <a
                 href="mailto:jonathanmelton.fusional@gmail.com"
-                className="rounded-full border border-gold px-4 py-1.5 text-gold transition-colors hover:bg-gold hover:text-ink"
+                className="whitespace-nowrap rounded-full border border-gold px-3 py-1 text-gold transition-colors hover:bg-gold hover:text-ink sm:px-4 sm:py-1.5"
               >
                 Contact
               </a>

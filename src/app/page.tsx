@@ -35,14 +35,16 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-line">
-        <Image
-          src="/assets/hero-fusional.png"
-          alt=""
-          width={2016}
-          height={864}
-          priority
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/assets/hero-fusional.png"
           className="absolute inset-0 h-full w-full object-cover opacity-70"
-        />
+        >
+          <source src="/assets/hero-loop.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-40">
           <p className="eyebrow mb-4">Governed AI infrastructure</p>
