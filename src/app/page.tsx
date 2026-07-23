@@ -125,10 +125,10 @@ export default function Home() {
             builder, no handoffs.
           </p>
           <a
-            href="mailto:jonathanmelton.fusional@gmail.com"
+            href="mailto:jrm@fusional.dev"
             className="rounded-full bg-gold px-6 py-3 font-medium text-ink transition-colors hover:bg-molten"
           >
-            jonathanmelton.fusional@gmail.com
+            jrm@fusional.dev
           </a>
         </div>
       </section>

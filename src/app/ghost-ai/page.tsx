@@ -45,7 +45,7 @@ export default function GhostAI() {
             is governed, logged, and yours to audit.
           </p>
           <a
-            href="mailto:jonathanmelton.fusional@gmail.com?subject=Ghost%20AI%20engagement"
+            href="mailto:jrm@fusional.dev?subject=Ghost%20AI%20engagement"
             className="mt-10 w-fit rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
           >
             Book a scoping call

@@ -66,7 +66,7 @@ export default function AIOS() {
           ))}
         </div>
         <a
-          href="mailto:jonathanmelton.fusional@gmail.com?subject=AIOS%20setup"
+          href="mailto:jrm@fusional.dev?subject=AIOS%20setup"
           className="mt-12 inline-block rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
         >
           Get set up

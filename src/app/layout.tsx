@@ -79,7 +79,7 @@ export default function RootLayout({
                 </Link>
               ))}
               <a
-                href="mailto:jonathanmelton.fusional@gmail.com"
+                href="mailto:jrm@fusional.dev"
                 className="whitespace-nowrap rounded-full border border-gold px-3 py-1 text-gold transition-colors hover:bg-gold hover:text-ink sm:px-4 sm:py-1.5"
               >
                 Contact
