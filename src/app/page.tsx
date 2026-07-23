@@ -56,6 +56,12 @@ export default function Home() {
             systems that let regulated teams and solo operators run AI with
             confidence — self-hosted, auditable, yours.
           </p>
+          <p className="mt-4 text-sm italic text-paper/50">
+            Keep it{" "}
+            <span className="text-molten not-italic font-semibold">Flowing</span>{" "}
+            while always{" "}
+            <span className="text-gold not-italic font-semibold">Knowing</span>.
+          </p>
           <div className="mt-10 flex gap-4">
             <Link
               href="/ghost-ai"

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
   title: "FusionAL — Governed AI for Regulated Industries",
   description:
-    "MCP governance gateways, Ghost AI architecture planning, and done-for-you AI operating systems. Built by JRM FusionAL.",
+    "Keep it Flowing while Always Knowing. MCP governance gateways, Ghost AI architecture planning, and done-for-you AI operating systems.",
   openGraph: {
     title: "FusionAL — Governed AI for Regulated Industries",
     description:
@@ -90,7 +90,10 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer className="border-t border-line">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 text-sm text-paper/50">
-            <p>© 2026 JRM FusionAL</p>
+            <div>
+              <p>© 2026 JRM FusionAL</p>
+              <p className="mt-0.5 text-xs italic text-paper/30">Keep it Flowing while Always Knowing.</p>
+            </div>
             <div className="flex gap-6">
               <a
                 href="https://github.com/JRM-FusionAL"
