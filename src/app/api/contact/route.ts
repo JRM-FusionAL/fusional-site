@@ -7,17 +7,27 @@ function clean(value: unknown): string {
 }
 
 export async function POST(request: Request) {
-  let body: Record<string, unknown>;
+  let parsed: unknown;
   try {
-    body = await request.json();
+    parsed = await request.json();
   } catch {
     return Response.json({ error: "Invalid request body." }, { status: 400 });
   }
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return Response.json({ error: "Invalid request body." }, { status: 400 });
+  }
+  const body = parsed as Record<string, unknown>;
 
   const name = clean(body.name);
   const email = clean(body.email);
   const company = clean(body.company);
   const message = clean(body.message);
+
+  const honeypot = clean(body.website);
+  if (honeypot) {
+    // Bot submission — pretend success so the bot doesn't learn to retry.
+    return Response.json({ ok: true });
+  }
 
   if (!name || !email || !message) {
     return Response.json(
@@ -31,11 +41,7 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error("contact: RESEND_API_KEY is not set; lead not delivered", {
-      name,
-      email,
-      company,
-    });
+    console.error("contact: RESEND_API_KEY is not set; lead not delivered");
     return Response.json(
       { error: "The contact form is not configured yet." },
       { status: 503 },
