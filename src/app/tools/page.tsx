@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Open Source | FusionAL",
@@ -11,7 +12,9 @@ const repos = [
   {
     name: "agentstack-init",
     desc: "Audit and bootstrap AI agent stacks — detects MCP configs, CLI versions, and drift. On PyPI.",
-    href: "https://pypi.org/project/agentstack-init/",
+    href: "/agentstack",
+    secondaryHref: "https://pypi.org/project/agentstack-init/",
+    secondaryLabel: "View on PyPI",
   },
   {
     name: "FusionAL",
@@ -48,16 +51,25 @@ export default function Tools() {
       </div>
       <div className="mt-16 grid gap-6 md:grid-cols-2">
         {repos.map((r) => (
-          <a
+          <div
             key={r.name}
-            href={r.href}
             className="group rounded-2xl border border-line bg-ink-2 p-8 transition-colors hover:border-gold"
           >
-            <h2 className="font-display text-xl font-bold group-hover:text-gold">
-              {r.name}
-            </h2>
-            <p className="mt-3 leading-relaxed text-paper/60">{r.desc}</p>
-          </a>
+            <Link href={r.href} className="block">
+              <h2 className="font-display text-xl font-bold group-hover:text-gold">
+                {r.name}
+              </h2>
+              <p className="mt-3 leading-relaxed text-paper/60">{r.desc}</p>
+            </Link>
+            {r.secondaryHref && (
+              <a
+                href={r.secondaryHref}
+                className="mt-4 inline-block text-sm text-paper/50 underline hover:text-gold"
+              >
+                {r.secondaryLabel}
+              </a>
+            )}
+          </div>
         ))}
       </div>
     </section>
