@@ -3,12 +3,12 @@ import Link from "next/link";
 
 const products = [
   {
-    href: "/ghost-ai",
-    title: "Ghost AI",
+    href: "/fusional-canvas",
+    title: "FusionAL Canvas",
     tagline: "Architecture planning canvas with built-in AI governance",
     detail:
       "Claude-native collaborative planning for regulated industries. Every AI action passes through a FusionAL governance gateway — auditable, policy-enforced, self-hosted.",
-    image: "/assets/ghost-hero.png",
+    image: "/assets/fusional-canvas-hero.png",
     cta: "For regulated teams",
   },
   {
@@ -64,10 +64,10 @@ export default function Home() {
           </p>
           <div className="mt-10 flex gap-4">
             <Link
-              href="/ghost-ai"
+              href="/fusional-canvas"
               className="rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
             >
-              Explore Ghost AI
+              Explore FusionAL Canvas
             </Link>
             <Link
               href="/aios"

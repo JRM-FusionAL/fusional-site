@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
   title: "FusionAL — Governed AI for Regulated Industries",
   description:
-    "Keep it Flowing while Always Knowing. MCP governance gateways, Ghost AI architecture planning, and done-for-you AI operating systems.",
+    "Keep it Flowing while Always Knowing. MCP governance gateways, FusionAL Canvas architecture planning, and done-for-you AI operating systems.",
   openGraph: {
     title: "FusionAL — Governed AI for Regulated Industries",
     description:
-      "MCP governance gateways, Ghost AI architecture planning, and done-for-you AI operating systems.",
+      "MCP governance gateways, FusionAL Canvas architecture planning, and done-for-you AI operating systems.",
     url: "https://fusional.dev",
     siteName: "FusionAL",
     images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FusionAL — Governed AI for Regulated Industries",
     description:
-      "MCP governance gateways, Ghost AI planning, and done-for-you AI operating systems.",
+      "MCP governance gateways, FusionAL Canvas planning, and done-for-you AI operating systems.",
     images: ["/assets/og-card.jpg"],
   },
 };
 
 const nav = [
-  { href: "/ghost-ai", label: "Ghost AI" },
+  { href: "/fusional-canvas", label: "FusionAL Canvas" },
   { href: "/aios", label: "AIOS" },
   { href: "/tools", label: "Open Source" },
   { href: "/writing", label: "Writing" },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Ghost AI — Governed Architecture Planning | FusionAL",
+  title: "FusionAL Canvas — Governed Architecture Planning | FusionAL",
   description:
     "Claude-native collaborative architecture planning with FusionAL governance for regulated industries.",
 };
@@ -22,12 +22,12 @@ const pillars = [
   },
 ];
 
-export default function GhostAI() {
+export default function FusionalCanvas() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-line">
         <Image
-          src="/assets/ghost-hero.png"
+          src="/assets/fusional-canvas-hero.png"
           alt=""
           width={1376}
           height={768}
@@ -38,14 +38,14 @@ export default function GhostAI() {
         <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 py-24">
           <p className="eyebrow mb-4">For regulated industries</p>
           <h1 className="max-w-2xl text-5xl font-bold leading-tight md:text-6xl">
-            Ghost AI
+            FusionAL Canvas
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
             A collaborative architecture planning canvas where every AI action
             is governed, logged, and yours to audit.
           </p>
           <a
-            href="mailto:jrm@fusional.dev?subject=Ghost%20AI%20engagement"
+            href="mailto:jrm@fusional.dev?subject=FusionAL%20Canvas%20engagement"
             className="mt-10 w-fit rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
           >
             Book a scoping call
