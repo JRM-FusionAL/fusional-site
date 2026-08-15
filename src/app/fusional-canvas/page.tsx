@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { STRIPE_LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "FusionAL Canvas — Governed Architecture Planning | FusionAL",
@@ -44,12 +45,20 @@ export default function FusionalCanvas() {
             A collaborative architecture planning canvas where every AI action
             is governed, logged, and yours to audit.
           </p>
-          <a
-            href="mailto:jrm@fusional.dev?subject=FusionAL%20Canvas%20engagement"
-            className="mt-10 w-fit rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
-          >
-            Book a scoping call
-          </a>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href={STRIPE_LINKS.canvasConsulting}
+              className="w-fit rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
+            >
+              Start at $3K
+            </a>
+            <a
+              href="mailto:jrm@fusional.dev?subject=FusionAL%20Canvas%20engagement"
+              className="w-fit rounded-full border border-paper/30 px-6 py-3 font-medium transition-colors hover:border-gold hover:text-gold"
+            >
+              Book a scoping call
+            </a>
+          </div>
         </div>
       </section>
 

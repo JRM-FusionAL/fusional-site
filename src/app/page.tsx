@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { STRIPE_LINKS } from "@/lib/links";
 
 const products = [
   {
@@ -28,6 +29,16 @@ const products = [
       "agentstack-init, FusionAL-Recall, mcp-consulting-kit, and the FusionAL governance gateway. Battle-tested on our own stack first.",
     image: "/assets/tools-gates.png",
     cta: "On GitHub",
+  },
+];
+
+const serviceOffers = [
+  {
+    title: "MCP Token Audit",
+    price: "$1,500",
+    body: "One-time audit of your MCP server setup: security posture, tool coverage, governance readiness, and a prioritized hardening plan in a 1-page report.",
+    href: STRIPE_LINKS.tokenAudit,
+    cta: "Buy now",
   },
 ];
 
@@ -111,6 +122,45 @@ export default function Home() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <p className="eyebrow mb-4">Fastest way in</p>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8">
+              <p className="text-sm font-medium text-paper/70">MCP Token Audit</p>
+              <p className="mt-2 font-display text-4xl font-bold text-gold">
+                $1,500
+              </p>
+              <p className="mt-4 flex-1 leading-relaxed text-paper/60">
+                One-time audit of your MCP server setup: security posture, tool
+                coverage, governance readiness, and a prioritized hardening plan
+                in a 1-page report. A low-risk first engagement that earns trust
+                for a bigger build.
+              </p>
+              <a
+                href={STRIPE_LINKS.tokenAudit}
+                className="mt-6 inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
+              >
+                Buy now
+              </a>
+            </div>
+            <div className="flex flex-col justify-center rounded-2xl border border-line bg-ink-2 p-8">
+              <p className="eyebrow">Prefer to talk first?</p>
+              <p className="mt-3 leading-relaxed text-paper/70">
+                Most engagements start with a scoping call. Share what you're
+                running and I'll map the path — audit, pilot, or full rollout.
+              </p>
+              <a
+                href="mailto:jrm@fusional.dev"
+                className="mt-6 inline-block rounded-full bg-gold px-6 py-3 text-center font-medium text-ink transition-colors hover:bg-molten"
+              >
+                jrm@fusional.dev
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

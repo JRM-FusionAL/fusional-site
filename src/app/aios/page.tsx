@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { STRIPE_LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "AIOS Setup Service | FusionAL",
@@ -11,16 +12,22 @@ const tiers = [
   {
     name: "DIY Template",
     price: "$97",
+    href: STRIPE_LINKS.aiosTemplate,
+    cta: "Get the template",
     body: "The AIOS template repo: cadence, routines, memory system, and guardrails, documented for self-install on Claude Code.",
   },
   {
     name: "Guided Setup",
     price: "$497",
+    href: STRIPE_LINKS.aiosGuided,
+    cta: "Get guided setup",
     body: "Template plus a working session: installed on your machine, tuned to your business, first routines live before we hang up.",
   },
   {
     name: "White Glove",
     price: "$1,497",
+    href: STRIPE_LINKS.aiosWhiteGlove,
+    cta: "Get white-glove",
     body: "Full build-out: custom routines, integrations with your calendar, comms and task stack, and 30 days of iteration support.",
   },
 ];
@@ -55,22 +62,30 @@ export default function AIOS() {
           {tiers.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-line bg-ink-2 p-8"
+              className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8"
             >
               <p className="eyebrow">{t.name}</p>
               <p className="mt-3 font-display text-4xl font-bold text-gold">
                 {t.price}
               </p>
               <p className="mt-4 leading-relaxed text-paper/60">{t.body}</p>
+              <a
+                href={t.href}
+                className="mt-6 inline-block rounded-full border border-paper/30 px-5 py-2.5 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
+              >
+                {t.cta}
+              </a>
             </div>
           ))}
         </div>
-        <a
-          href="mailto:jrm@fusional.dev?subject=AIOS%20setup"
-          className="mt-12 inline-block rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
-        >
-          Get set up
-        </a>
+        <div className="mt-12 flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:jrm@fusional.dev?subject=AIOS%20setup"
+            className="inline-block rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
+          >
+            Not sure which? Ask me
+          </a>
+        </div>
       </section>
     </>
   );
