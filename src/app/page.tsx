@@ -140,12 +140,20 @@ export default function Home() {
                 in a 1-page report. A low-risk first engagement that earns trust
                 for a bigger build.
               </p>
-              <a
-                href={STRIPE_LINKS.tokenAudit}
-                className="mt-6 inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
-              >
-                Buy now
-              </a>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={STRIPE_LINKS.tokenAudit}
+                  className="inline-block rounded-full bg-molten px-6 py-3 text-center text-sm font-semibold text-ink transition-colors hover:bg-molten-deep"
+                >
+                  Buy now
+                </a>
+                <Link
+                  href="/mcp-token-audit"
+                  className="inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
+                >
+                  What&apos;s included
+                </Link>
+              </div>
             </div>
             <div className="flex flex-col justify-center rounded-2xl border border-line bg-ink-2 p-8">
               <p className="eyebrow">Prefer to talk first?</p>
