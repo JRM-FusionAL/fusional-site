@@ -37,11 +37,12 @@ export default function AIOS() {
     <>
       <section className="relative overflow-hidden border-b border-line">
         <Image
-          src="/assets/aios-hero.png"
+          src="/assets/aios-hero.webp"
           alt=""
           width={1376}
           height={768}
-          priority
+          preload
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
