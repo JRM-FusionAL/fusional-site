@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HeroVideo } from "@/components/hero-video";
 import { STRIPE_LINKS } from "@/lib/links";
+
+const HERO_WIDTHS = [960, 1440, 1920, 2560];
+
+const HERO_STILL = {
+  avif: HERO_WIDTHS.map((w) => `/assets/hero-still-${w}.avif ${w}w`).join(", "),
+  webp: HERO_WIDTHS.map((w) => `/assets/hero-still-${w}.webp ${w}w`).join(", "),
+};
 
 const products = [
   {
@@ -9,7 +17,7 @@ const products = [
     tagline: "Architecture planning canvas with built-in AI governance",
     detail:
       "Claude-native collaborative planning for regulated industries. Every AI action passes through a FusionAL governance gateway — auditable, policy-enforced, self-hosted.",
-    image: "/assets/fusional-canvas-hero.png",
+    image: "/assets/fusional-canvas-hero.webp",
     cta: "For regulated teams",
   },
   {
@@ -18,7 +26,7 @@ const products = [
     tagline: "A done-for-you AI operating system on Claude Code",
     detail:
       "Cadence, routines, memory, and guardrails — installed and tuned for solopreneurs and small teams. From a $97 DIY template to full white-glove setup.",
-    image: "/assets/aios-hero.png",
+    image: "/assets/aios-hero.webp",
     cta: "For solo operators",
   },
   {
@@ -27,7 +35,7 @@ const products = [
     tagline: "The tooling behind it all, in the open",
     detail:
       "agentstack-init, FusionAL-Recall, mcp-consulting-kit, and the FusionAL governance gateway. Battle-tested on our own stack first.",
-    image: "/assets/tools-gates.png",
+    image: "/assets/tools-gates.webp",
     cta: "On GitHub",
   },
 ];
@@ -46,16 +54,28 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-line">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/assets/hero-fusional.png"
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
-        >
-          <source src="/assets/hero-loop.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 opacity-70">
+          <picture>
+            <source
+              type="image/avif"
+              sizes="100vw"
+              srcSet={HERO_STILL.avif}
+            />
+            <source
+              type="image/webp"
+              sizes="100vw"
+              srcSet={HERO_STILL.webp}
+            />
+            <img
+              src="/assets/hero-still-1440.jpg"
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </picture>
+          <HeroVideo />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-40">
           <p className="eyebrow mb-4">Governed AI infrastructure</p>
@@ -107,6 +127,7 @@ export default function Home() {
                   src={p.image}
                   alt=""
                   fill
+                  sizes="(min-width: 1152px) 362px, (min-width: 768px) 33vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

@@ -28,11 +28,12 @@ export default function FusionalCanvas() {
     <>
       <section className="relative overflow-hidden border-b border-line">
         <Image
-          src="/assets/fusional-canvas-hero.png"
+          src="/assets/fusional-canvas-hero.webp"
           alt=""
           width={1376}
           height={768}
-          priority
+          preload
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />

@@ -42,10 +42,11 @@ export default function Tools() {
       </h1>
       <div className="relative mt-12 aspect-[21/9] overflow-hidden rounded-2xl border border-line">
         <Image
-          src="/assets/tools-gates.png"
+          src="/assets/tools-gates.webp"
           alt=""
           fill
-          priority
+          preload
+          sizes="(min-width: 1152px) 1104px, 100vw"
           className="object-cover"
         />
       </div>
