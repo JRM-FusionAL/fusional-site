@@ -4,14 +4,25 @@ import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
+// Body copy. Every route renders Inter in the first frame, so it keeps its
+// preload — this is the one font worth spending high-priority bandwidth on.
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
+// Headings only (h1-h3 and .font-display). Preloading it put 22 KB of
+// High-priority font fetch in front of the hero image on every route, to win a
+// swap nobody sees: `display: swap` paints the heading immediately in the
+// fallback, and next/font's metric-adjusted fallback means the later swap
+// changes the letterforms without moving the layout. LCP is recorded on that
+// first paint, so the deferred fetch costs nothing that gets measured.
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
