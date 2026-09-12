@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ReactDOM from "react-dom";
 import { HeroVideo } from "@/components/hero-video";
 import { STRIPE_LINKS } from "@/lib/links";
 
@@ -9,6 +10,25 @@ const HERO_STILL = {
   avif: HERO_WIDTHS.map((w) => `/assets/hero-still-${w}.avif ${w}w`).join(", "),
   webp: HERO_WIDTHS.map((w) => `/assets/hero-still-${w}.webp ${w}w`).join(", "),
 };
+
+const HERO_SIZES = "100vw";
+
+// The hero still is the LCP element, but it lives in a <picture> in the body —
+// nothing in <head> points at it, so the browser cannot start it until it has
+// parsed past every preload the framework put there first. This hoists it into
+// <head> ahead of that work. `type` makes the hint self-cancelling: a browser
+// without AVIF ignores the whole link rather than fetching bytes it cannot
+// decode, and falls through to the <source> chain below. The srcSet/sizes must
+// stay byte-identical to the AVIF <source> or the browser fetches twice.
+function preloadHeroStill() {
+  ReactDOM.preload(`/assets/hero-still-1440.avif`, {
+    as: "image",
+    type: "image/avif",
+    imageSrcSet: HERO_STILL.avif,
+    imageSizes: HERO_SIZES,
+    fetchPriority: "high",
+  });
+}
 
 const products = [
   {
@@ -51,6 +71,8 @@ const serviceOffers = [
 ];
 
 export default function Home() {
+  preloadHeroStill();
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-line">
@@ -58,12 +80,12 @@ export default function Home() {
           <picture>
             <source
               type="image/avif"
-              sizes="100vw"
+              sizes={HERO_SIZES}
               srcSet={HERO_STILL.avif}
             />
             <source
               type="image/webp"
-              sizes="100vw"
+              sizes={HERO_SIZES}
               srcSet={HERO_STILL.webp}
             />
             <img

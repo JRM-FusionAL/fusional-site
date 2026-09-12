@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    // `formats` defaults to ["image/webp"], so every <Image> on the subpages was
+    // served WebP even to browsers advertising AVIF. The homepage hero already
+    // hand-rolls an AVIF <picture> and lands ~40% under its WebP twin; this puts
+    // the optimizer-backed heroes on the same footing. Order matters — the
+    // optimizer picks the first entry the request's Accept header supports.
+    formats: ["image/avif", "image/webp"],
+  },
   async headers() {
     return [
       {
