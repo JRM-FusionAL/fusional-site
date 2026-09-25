@@ -1,4 +1,5 @@
 import { CONTACT_EMAIL } from "@/lib/links";
+import { guardContact } from "@/lib/contact-guard";
 
 const MAX_FIELD = 2000;
 
@@ -7,16 +8,9 @@ function clean(value: unknown): string {
 }
 
 export async function POST(request: Request) {
-  let parsed: unknown;
-  try {
-    parsed = await request.json();
-  } catch {
-    return Response.json({ error: "Invalid request body." }, { status: 400 });
-  }
-  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
-    return Response.json({ error: "Invalid request body." }, { status: 400 });
-  }
-  const body = parsed as Record<string, unknown>;
+  const guarded = await guardContact(request);
+  if ("response" in guarded) return guarded.response;
+  const body = guarded.body;
 
   const name = clean(body.name);
   const email = clean(body.email);
