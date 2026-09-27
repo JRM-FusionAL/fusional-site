@@ -4,34 +4,45 @@ import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
 export const metadata: Metadata = {
   title: "MCP Token Audit | FusionAL",
   description:
-    "A one-time audit of your MCP server setup: security posture, tool coverage, governance readiness, and a prioritized hardening plan — delivered as a 1-page report plus a 30-minute walkthrough.",
+    "A five-day, fixed-price review of one workflow where AI agents or MCP tools reach regulated data: a permissions map, documented risks, and a prioritized RBAC and audit-trail remediation plan, walked through on a readout call.",
 };
 
 const FINDINGS = [
   {
-    label: "Tool-level exposure",
+    label: "Borrowed identity",
     detail:
-      "Which of your MCP tools can read, write, or execute — and whether an agent can reach them without a human in the loop.",
+      "The agent runs on a person's key or a shared service account, so the audit log records the wrong actor for everything it does.",
   },
   {
-    label: "Auth & secret handling",
+    label: "Scope wider than the task",
     detail:
-      "API keys and tokens scoped correctly, or sitting in a config file an agent can read and leak.",
+      "A token that only needs to read one record can write, delete, or reach every customer, and nothing stops an agent from using it.",
   },
   {
-    label: "Governance gaps",
+    label: "An audit trail that can't answer",
     detail:
-      "No audit trail, no approval gate, no policy layer — the three failure modes that turn a useful agent into a liability.",
+      "When someone asks who authorized an action and what it touched, the logs can't separate what the agent did from what a person did.",
   },
 ];
 
 const INCLUDES = [
-  "Full read of every MCP server config in your stack",
-  "Tool-by-tool risk classification (safe / needs a gate / remove)",
-  "Secret and credential exposure check",
-  "Prioritized hardening plan, ranked by risk vs. effort",
-  "1-page report you can hand to a compliance team",
-  "30-minute walkthrough call to go through findings",
+  "Permissions map: every identity, token and scope the agreed workflow uses, and what each can reach against what the task needs",
+  "Documented risks: each gap in plain language, rated by likelihood and impact, with the evidence behind it",
+  "Prioritized remediation plan: specific RBAC and audit-trail changes, ordered so the first few close the largest exposure",
+  "Readout call: we walk through the findings with your team and agree the order of fixes",
+];
+
+const DAYS = [
+  ["Day 1", "Kickoff call. Agree the workflow, the systems in scope, and the access needed."],
+  ["Days 2–3", "Map identities, tokens and scopes; trace what the workflow can reach and what gets logged."],
+  ["Day 4", "Write up the risks and the remediation plan."],
+  ["Day 5", "Readout call and delivery of the written report."],
+];
+
+const NOT_INCLUDED = [
+  "Implementing the fixes. That's a separate conversation after the readout.",
+  "Penetration testing, a compliance certification, or any guarantee of a regulatory outcome.",
+  "Workflows beyond the one agreed.",
 ];
 
 export default function McpTokenAudit() {
@@ -40,22 +51,23 @@ export default function McpTokenAudit() {
       {/* Hero */}
       <section className="mx-auto w-full max-w-6xl px-4 pt-16 pb-20 sm:px-6 md:pt-24 md:pb-28">
         <div className="max-w-[52ch]">
-          <p className="eyebrow mb-4">One-time engagement</p>
+          <p className="eyebrow mb-4">Five days · fixed price</p>
           <h1 className="font-display text-4xl font-bold leading-tight text-balance md:text-6xl">
-            You wired up MCP. Do you know what it can do?
+            Your agents have access. Do you know how much?
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-paper/60">
-            Most MCP setups grow one server at a time until nobody remembers
-            what an agent can actually reach. The Token Audit is a one-time,
-            outside look at your stack: what&apos;s exposed, what&apos;s
-            ungoverned, and what to fix first.
+            Agents usually get working access first and scoped access later.
+            The MCP Token Audit takes one real workflow where an agent or MCP
+            tool reaches regulated data and shows how far apart those two are:
+            which identity it acts as, what it can actually reach, and whether
+            you could prove afterwards what it did.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={STRIPE_LINKS.tokenAudit}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Buy now — $1,500
+              Start the audit — $1,500
             </a>
             <a
               href={BOOKING_URL}
@@ -65,47 +77,52 @@ export default function McpTokenAudit() {
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
-            Delivered within 5 business days of payment. Fixed scope, fixed
-            price — no surprise invoice.
+            Five days, starting once the workflow and access are agreed on the
+            kickoff call. Fixed scope, fixed price. After payment you go
+            straight to booking the kickoff.{" "}
+            <a href="/mcp-token-audit-scope.pdf" className="text-gold underline-offset-4 hover:underline">
+              Download the one-page scope
+            </a>
+            .
           </p>
         </div>
 
-        {/* Terminal block */}
+        {/* Terminal block: an illustration of the format, not a real engagement */}
         <div className="mt-12 overflow-hidden rounded-2xl border border-line bg-ink-2">
           <div className="flex items-center gap-2 border-b border-line px-5 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-            <span className="ml-3 font-mono text-xs text-paper/50">mcp-token-audit</span>
+            <span className="ml-3 font-mono text-xs text-paper/50">mcp-token-audit · example findings</span>
           </div>
           <pre className="overflow-x-auto px-6 py-5 font-mono text-sm leading-relaxed">
             <span className="text-red-400">✗  </span>
-            <span className="text-paper/80">github MCP server: write + delete scope, no approval gate</span>
+            <span className="text-paper/80">agent acts under a developer&apos;s API key: actions logged as that person</span>
             {"\n"}
             <span className="text-red-400">✗  </span>
-            <span className="text-paper/80">stripe MCP server: live secret key readable by any agent process</span>
+            <span className="text-paper/80">token can write to every account; task only reads one</span>
             {"\n"}
             <span className="text-yellow-400">!  </span>
-            <span className="text-paper/80">3 servers with no audit log — actions untraceable after the fact</span>
+            <span className="text-paper/80">no record separating agent actions from human approvals</span>
             {"\n\n"}
-            <span className="text-paper/60">Risk summary: </span>
-            <span className="font-semibold text-gold">2 critical · 3 medium · 6 low</span>
+            <span className="text-paper/60">Delivered: </span>
+            <span className="font-semibold text-gold">permissions map · documented risks · remediation plan</span>
             {"\n"}
-            <span className="text-paper/60">Full report + fix plan delivered as a 1-page PDF</span>
+            <span className="text-paper/60">Then a readout call to agree the order of fixes</span>
           </pre>
         </div>
       </section>
 
-      {/* What we find */}
+      {/* What we look for */}
       <section className="border-t border-line bg-ink-2/40">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24">
           <h2 className="font-display text-2xl font-semibold md:text-3xl">
-            Three things every MCP stack gets wrong.
+            Where agent access usually drifts.
           </h2>
           <p className="mt-3 max-w-[56ch] text-paper/60">
-            The audit isn&apos;t a generic checklist — it&apos;s a read of your
-            actual config, your actual tools, and what an agent connected to
-            them can actually do.
+            It isn&apos;t a generic checklist. It&apos;s a read of one real
+            workflow: its configuration, its tokens, and what an agent
+            connected to it can actually do.
           </p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {FINDINGS.map((f, i) => (
@@ -125,12 +142,14 @@ export default function McpTokenAudit() {
           <div className="grid gap-12 md:grid-cols-2">
             <div>
               <h2 className="font-display text-2xl font-semibold md:text-3xl">
-                What&apos;s in the audit.
+                What you get.
               </h2>
               <p className="mt-4 max-w-[48ch] leading-relaxed text-paper/60">
-                Fixed scope. You send me read access to your MCP configs (no
-                write access needed, no code changes on your end), I read
-                every server, and you get a report plus a call.
+                We pick one workflow together on the kickoff call. You give
+                read access to its configuration (MCP and client config,
+                token and role definitions, relevant logs), or walk me through
+                it on a screen-share. Nothing changes on your side, and no
+                production data is copied out.
               </p>
             </div>
             <ul className="space-y-3">
@@ -141,6 +160,31 @@ export default function McpTokenAudit() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="mt-16 grid gap-12 md:grid-cols-2">
+            <div>
+              <h3 className="font-display text-xl font-semibold">Five days</h3>
+              <dl className="mt-4 space-y-3 text-sm">
+                {DAYS.map(([day, what]) => (
+                  <div key={day} className="flex gap-4">
+                    <dt className="w-20 shrink-0 font-mono text-gold">{day}</dt>
+                    <dd className="text-paper/80">{what}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div>
+              <h3 className="font-display text-xl font-semibold">Not included</h3>
+              <ul className="mt-4 space-y-3">
+                {NOT_INCLUDED.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm">
+                    <span aria-hidden className="mt-[7px] h-px w-3 shrink-0 bg-paper/30" />
+                    <span className="text-paper/70">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -153,21 +197,22 @@ export default function McpTokenAudit() {
               <p className="eyebrow">MCP Token Audit</p>
               <p className="mt-2 font-mono text-4xl font-bold text-gold">$1,500</p>
               <p className="mt-3 max-w-[48ch] text-sm leading-relaxed text-paper/60">
-                One-time, fixed price. Delivered as a report plus a 30-minute
-                walkthrough. No retainer, no upsell required to get value.
+                Fixed price, five days, one workflow. Card or ACH at checkout,
+                with an invoice emailed automatically, or ask for an invoice
+                instead. No retainer.
               </p>
             </div>
             <a
               href={STRIPE_LINKS.tokenAudit}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Buy now
+              Start the audit
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">
             Prefer to talk first?{" "}
             <a href={BOOKING_URL} className="text-gold underline-offset-4 hover:underline">
-              Book a free 15-min call
+              Book a call
             </a>{" "}
             or email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">

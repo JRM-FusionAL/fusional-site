@@ -11,3 +11,11 @@ export const STRIPE_LINKS = {
   tokenAudit: "https://buy.stripe.com/00w4gycnagXs2XDeZR33W03",
   canvasConsulting: "https://buy.stripe.com/bJeaEWbj6cHc7dT3h933W04",
 } as const;
+
+// $750 AI Policy Review payment link. Until it exists (null), the buy buttons
+// fall back to booking a call, labelled honestly. Set it to the Stripe URL to
+// switch every "start the review" button to checkout.
+export const AI_POLICY_CHECKOUT: string | null = null;
+export const aiPolicyHref = AI_POLICY_CHECKOUT ?? BOOKING_URL;
+export const aiPolicyCta = (checkoutLabel: string) =>
+  AI_POLICY_CHECKOUT ? checkoutLabel : "Book a call to start";

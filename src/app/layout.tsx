@@ -49,6 +49,8 @@ export const metadata: Metadata = {
 };
 
 const nav = [
+  { href: "/mcp-token-audit", label: "MCP Audit" },
+  { href: "/ai-policy-review", label: "AI Policy" },
   { href: "/fusional-canvas", label: "FusionAL Canvas" },
   { href: "/aios", label: "AIOS" },
   { href: "/tools", label: "Open Source" },

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactDOM from "react-dom";
 import { HeroVideo } from "@/components/hero-video";
-import { STRIPE_LINKS } from "@/lib/links";
+import { BOOKING_URL, STRIPE_LINKS, aiPolicyCta, aiPolicyHref } from "@/lib/links";
 
 const HERO_WIDTHS = [960, 1440, 1920, 2560];
 
@@ -64,9 +64,20 @@ const serviceOffers = [
   {
     title: "MCP Token Audit",
     price: "$1,500",
-    body: "One-time audit of your MCP server setup: security posture, tool coverage, governance readiness, and a prioritized hardening plan in a 1-page report.",
+    terms: "Five days · one workflow",
+    body: "For teams running AI agents or MCP tools against regulated data. A permissions map, documented risks, and a prioritized RBAC and audit-trail remediation plan for one agreed workflow, walked through on a readout call.",
     href: STRIPE_LINKS.tokenAudit,
-    cta: "Buy now",
+    details: "/mcp-token-audit",
+    cta: "Start the audit",
+  },
+  {
+    title: "AI Policy Review",
+    price: "$750",
+    terms: "One week · fixed price",
+    body: "For small regulated practices whose staff are starting to use AI tools. A written acceptable-use policy, a settings checklist for the tools you already have, a one-page staff briefing, and a findings record.",
+    href: aiPolicyHref,
+    details: "/ai-policy-review",
+    cta: aiPolicyCta("Start the review"),
   },
 ];
 
@@ -115,20 +126,64 @@ export default function Home() {
             while always{" "}
             <span className="text-gold not-italic font-semibold">Knowing</span>.
           </p>
-          <div className="mt-10 flex gap-4">
+          <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/fusional-canvas"
+              href="/mcp-token-audit"
               className="rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
             >
-              Explore FusionAL Canvas
+              MCP Token Audit · $1,500
             </Link>
-            <Link
-              href="/aios"
+            <a
+              href="#offers"
               className="rounded-full border border-paper/30 px-6 py-3 font-medium transition-colors hover:border-gold hover:text-gold"
             >
-              Get an AIOS
-            </Link>
+              See how to start
+            </a>
           </div>
+        </div>
+      </section>
+
+      <section id="offers" className="border-b border-line">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <p className="eyebrow mb-4">Fastest way in</p>
+          <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
+            Two fixed-price engagements. Scoped, then priced.
+          </h2>
+          <div className="grid gap-8 md:grid-cols-2">
+            {serviceOffers.map((o) => (
+              <div key={o.title} className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8">
+                <p className="text-sm font-medium text-paper/70">{o.title}</p>
+                <p className="mt-2 font-display text-4xl font-bold text-gold">{o.price}</p>
+                <p className="mt-1 font-mono text-xs text-paper/50">{o.terms}</p>
+                <p className="mt-4 flex-1 leading-relaxed text-paper/60">{o.body}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={o.href}
+                    className="inline-block rounded-full bg-molten px-6 py-3 text-center text-sm font-semibold text-ink transition-colors hover:bg-molten-deep"
+                  >
+                    {o.cta}
+                  </a>
+                  <Link
+                    href={o.details}
+                    className="inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
+                  >
+                    What&apos;s included
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-paper/60">
+            Prefer to talk first? Email{" "}
+            <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
+              jrm@fusional.dev
+            </a>{" "}
+            or{" "}
+            <a href={BOOKING_URL} className="text-gold underline-offset-4 hover:underline">
+              book a call
+            </a>
+            .
+          </p>
         </div>
       </section>
 
@@ -165,53 +220,6 @@ export default function Home() {
               </div>
             </Link>
           ))}
-        </div>
-      </section>
-
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="eyebrow mb-4">Fastest way in</p>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8">
-              <p className="text-sm font-medium text-paper/70">MCP Token Audit</p>
-              <p className="mt-2 font-display text-4xl font-bold text-gold">
-                $1,500
-              </p>
-              <p className="mt-4 flex-1 leading-relaxed text-paper/60">
-                One-time audit of your MCP server setup: security posture, tool
-                coverage, governance readiness, and a prioritized hardening plan
-                in a 1-page report. A low-risk first engagement that earns trust
-                for a bigger build.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href={STRIPE_LINKS.tokenAudit}
-                  className="inline-block rounded-full bg-molten px-6 py-3 text-center text-sm font-semibold text-ink transition-colors hover:bg-molten-deep"
-                >
-                  Buy now
-                </a>
-                <Link
-                  href="/mcp-token-audit"
-                  className="inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
-                >
-                  What&apos;s included
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center rounded-2xl border border-line bg-ink-2 p-8">
-              <p className="eyebrow">Prefer to talk first?</p>
-              <p className="mt-3 leading-relaxed text-paper/70">
-                Most engagements start with a scoping call. Share what you're
-                running and I'll map the path — audit, pilot, or full rollout.
-              </p>
-              <a
-                href="mailto:jrm@fusional.dev"
-                className="mt-6 inline-block rounded-full bg-gold px-6 py-3 text-center font-medium text-ink transition-colors hover:bg-molten"
-              >
-                jrm@fusional.dev
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
