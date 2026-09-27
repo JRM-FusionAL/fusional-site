@@ -2,55 +2,66 @@ import type { Metadata } from "next";
 import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "AI Use Policy Review | FusionAL",
+  title: "MCP Access Audit | FusionAL",
   description:
-    "A five-business-day, fixed-price review for regulated practices and agencies: a written acceptable-use policy for staff AI tools, a settings checklist with a guided walkthrough, a one-page staff briefing, and a findings record.",
+    "A five-business-day, read-only review of one agreed workflow where AI agents or MCP tools reach your systems: a permission map, observed risks and limitations, and prioritized RBAC and audit-trail actions, in a one-page report with a 30-minute walkthrough.",
 };
 
-const FOR = [
-  "Law firms, medical and dental practices, insurance agencies, and financial advisers",
-  "Staff are already using AI assistants, or asking whether they can",
-  "Nobody has written down what is acceptable to put into them",
+const LOOKS_AT = [
+  {
+    label: "What each credential authorises",
+    detail:
+      "At server, tool, and parameter level: what the agent could actually do with the access it holds, not what the architecture diagram says.",
+  },
+  {
+    label: "Scope against the task",
+    detail:
+      "Where access is wider than the workflow needs: a token that only has to read one record but can write, delete, or reach everything.",
+  },
+  {
+    label: "What the audit trail can answer",
+    detail:
+      "Whether you could show afterwards which identity took an action, under what permission, and what it touched.",
+  },
 ];
 
 const INCLUDES = [
-  "A written acceptable-use policy for staff AI tools: what staff may use, and what data may go into them",
-  "A configuration and settings checklist for the tools you already have",
-  "A guided walkthrough of that checklist",
-  "A one-page staff briefing, written to be read in five minutes",
-  "A findings record, including the limitations of what was reviewed",
+  "Permission map for one agreed workflow: what each credential authorises, at server, tool, and parameter level",
+  "Observed risks and limitations, stated against your existing configuration",
+  "Prioritized RBAC and audit-trail actions",
+  "A one-page written report, then a 30-minute walkthrough of the findings",
 ];
 
 const EXCLUDED = [
-  "Legal certification or legal advice. Questions for your compliance owner or counsel are flagged, not guessed.",
-  "Any guarantee of regulatory compliance",
-  "Subscriptions or tool licences",
-  "Implementation work",
-  "Guarantees about how a vendor retains your data",
+  "Penetration testing or exploit development",
+  "Remediation work (implementation is a separate engagement, from $5,000)",
+  "Vendor selection",
+  "Any guarantee that a gap does or does not exist",
 ];
 
-export default function AiUsePolicyReview() {
+export default function McpAccessAudit() {
   return (
     <>
       {/* Hero */}
       <section className="mx-auto w-full max-w-6xl px-4 pt-16 pb-20 sm:px-6 md:pt-24 md:pb-28">
         <div className="max-w-[54ch]">
-          <p className="eyebrow mb-4">Five business days · fixed price</p>
+          <p className="eyebrow mb-4">Five business days · read-only</p>
           <h1 className="font-display text-4xl font-bold leading-tight text-balance md:text-6xl">
-            Clear rules for how your staff use AI.
+            An independent look at what your agents can reach.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-paper/60">
-            Most small regulated practices have staff using AI assistants and
-            no written rule covering what is acceptable. The AI Use Policy
-            Review writes that rule, for the tools you already use. It is a
-            policy deliverable, not legal certification.
+            The MCP Access Audit reviews one workflow you choose, where an AI
+            agent or MCP tool touches your systems. It maps what each
+            credential authorises and where the permissions need clearer
+            boundaries. It&apos;s a look, not an accusation: nothing here
+            assumes your current controls are deficient.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={STRIPE_LINKS.aiUsePolicy}
+              href={STRIPE_LINKS.accessAudit}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the review — $3,500
+              Start the audit — $2,500
             </a>
             <a
               href={BOOKING_URL}
@@ -60,23 +71,33 @@ export default function AiUsePolicyReview() {
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
-            Five business days, starting once we have agreed the tools to
-            cover. After payment you go straight to booking the kickoff call.
+            Five business days, starting once the workflow and access are
+            agreed on the kickoff call. After payment you go straight to
+            booking it.{" "}
+            <a href="/mcp-access-audit-scope.pdf" className="text-gold underline-offset-4 hover:underline">
+              Download the one-page scope
+            </a>
+            .
           </p>
         </div>
       </section>
 
-      {/* Who it's for */}
+      {/* What it looks at */}
       <section className="border-t border-line bg-ink-2/40">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24">
           <h2 className="font-display text-2xl font-semibold md:text-3xl">
-            Built for smaller regulated operators.
+            What the audit looks at.
           </h2>
+          <p className="mt-3 max-w-[56ch] text-paper/60">
+            Bounded to one workflow you both agree in advance, and read-only
+            throughout. Nothing changes on your side.
+          </p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {FOR.map((f, i) => (
-              <div key={f} className="rounded-2xl border border-line bg-ink-2 p-7">
+            {LOOKS_AT.map((f, i) => (
+              <div key={f.label} className="rounded-2xl border border-line bg-ink-2 p-7">
                 <p className="font-mono text-xs text-gold">{String(i + 1).padStart(2, "0")}</p>
-                <p className="mt-3 text-sm leading-relaxed text-paper/80">{f}</p>
+                <h3 className="mt-3 font-medium">{f.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-paper/60">{f.detail}</p>
               </div>
             ))}
           </div>
@@ -122,24 +143,29 @@ export default function AiUsePolicyReview() {
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
           <div className="flex flex-col items-start gap-6 rounded-2xl border border-gold/50 bg-ink-2 p-8 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="eyebrow">AI Use Policy Review</p>
-              <p className="mt-2 font-mono text-4xl font-bold text-gold">$3,500</p>
+              <p className="eyebrow">MCP Access Audit</p>
+              <p className="mt-2 font-mono text-4xl font-bold text-gold">$2,500</p>
               <p className="mt-3 max-w-[50ch] text-sm leading-relaxed text-paper/60">
-                Fixed price, five business days. Card or ACH at checkout, with
-                an invoice emailed automatically, or ask for an invoice instead.
+                Fixed price, five business days, one workflow. Card or ACH at
+                checkout, with an invoice emailed automatically, or ask for an
+                invoice instead.
               </p>
             </div>
             <a
-              href={STRIPE_LINKS.aiUsePolicy}
+              href={STRIPE_LINKS.accessAudit}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the review
+              Start the audit
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">
-            Questions first?{" "}
+            Already live and want it kept honest? See the{" "}
+            <a href="/agent-ops-retainer" className="text-gold underline-offset-4 hover:underline">
+              Agent Ops Retainer
+            </a>
+            . Questions:{" "}
             <a href={BOOKING_URL} className="text-gold underline-offset-4 hover:underline">
-              Book a call
+              book a call
             </a>{" "}
             or email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">

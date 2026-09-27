@@ -27,6 +27,17 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Repriced 2026-09-27: the MCP Token Audit became the MCP Access Audit.
+      {
+        source: "/mcp-token-audit",
+        destination: "/mcp-access-audit",
+        permanent: true,
+      },
+      {
+        source: "/mcp-token-audit-scope.pdf",
+        destination: "/mcp-access-audit-scope.pdf",
+        permanent: true,
+      },
       {
         source: "/ghost-ai",
         destination: "/fusional-canvas",
