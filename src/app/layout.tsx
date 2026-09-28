@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
   title: "FusionAL — Governed AI for Regulated Industries",
   description:
-    "Keep it Flowing while Always Knowing. MCP governance gateways, FusionAL Canvas architecture planning, and done-for-you AI operating systems.",
+    "Keep it Flowing while Always Knowing. Fixed-scope reviews of what your AI agents can reach, written AI use policies for regulated practices, and monthly oversight after launch.",
   openGraph: {
     title: "FusionAL — Governed AI for Regulated Industries",
     description:
-      "MCP governance gateways, FusionAL Canvas architecture planning, and done-for-you AI operating systems.",
+      "Fixed-scope reviews of what your AI agents can reach, written AI use policies for regulated practices, and monthly oversight after launch.",
     url: "https://fusional.dev",
     siteName: "FusionAL",
     images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
@@ -43,14 +43,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FusionAL — Governed AI for Regulated Industries",
     description:
-      "MCP governance gateways, FusionAL Canvas planning, and done-for-you AI operating systems.",
+      "Fixed-scope reviews of what your AI agents can reach, written AI use policies, and monthly oversight after launch.",
     images: ["/assets/og-card.jpg"],
   },
 };
 
 const nav = [
-  { href: "/mcp-token-audit", label: "MCP Audit" },
+  { href: "/mcp-access-audit", label: "MCP Audit" },
   { href: "/ai-policy-review", label: "AI Policy" },
+  { href: "/agent-ops-retainer", label: "Retainer" },
   { href: "/fusional-canvas", label: "FusionAL Canvas" },
   { href: "/aios", label: "AIOS" },
   { href: "/tools", label: "Open Source" },

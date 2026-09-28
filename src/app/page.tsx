@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactDOM from "react-dom";
 import { HeroVideo } from "@/components/hero-video";
-import { BOOKING_URL, STRIPE_LINKS, aiPolicyCta, aiPolicyHref } from "@/lib/links";
+import { BOOKING_URL, STRIPE_LINKS } from "@/lib/links";
 
 const HERO_WIDTHS = [960, 1440, 1920, 2560];
 
@@ -62,22 +62,31 @@ const products = [
 
 const serviceOffers = [
   {
-    title: "MCP Token Audit",
-    price: "$1,500",
-    terms: "Five days · one workflow",
-    body: "For teams running AI agents or MCP tools against regulated data. A permissions map, documented risks, and a prioritized RBAC and audit-trail remediation plan for one agreed workflow, walked through on a readout call.",
-    href: STRIPE_LINKS.tokenAudit,
-    details: "/mcp-token-audit",
+    title: "MCP Access Audit",
+    price: "$2,500",
+    terms: "Five business days · one workflow",
+    body: "For teams with AI agents or MCP tools touching their systems. A read-only permission map of one agreed workflow, observed risks and limitations, and prioritized RBAC and audit-trail actions, with a 30-minute walkthrough.",
+    href: STRIPE_LINKS.accessAudit,
+    details: "/mcp-access-audit",
     cta: "Start the audit",
   },
   {
-    title: "AI Policy Review",
-    price: "$750",
-    terms: "One week · fixed price",
-    body: "For small regulated practices whose staff are starting to use AI tools. A written acceptable-use policy, a settings checklist for the tools you already have, a one-page staff briefing, and a findings record.",
-    href: aiPolicyHref,
+    title: "AI Use Policy Review",
+    price: "$3,500",
+    terms: "Five business days · fixed price",
+    body: "For smaller regulated practices whose staff use AI assistants. A written acceptable-use policy, a settings checklist and walkthrough, a one-page staff briefing, and a findings record.",
+    href: STRIPE_LINKS.aiUsePolicy,
     details: "/ai-policy-review",
-    cta: aiPolicyCta("Start the review"),
+    cta: "Start the review",
+  },
+  {
+    title: "Agent Ops Retainer",
+    price: "$2,000/mo",
+    terms: "Monthly · up to 8 advisory hours",
+    body: "For live workflows that need to stay honest. New tools and credentials checked against an agreed baseline, a permission drift check, and one written findings note each month.",
+    href: STRIPE_LINKS.agentOpsRetainer,
+    details: "/agent-ops-retainer",
+    cta: "Start the retainer",
   },
 ];
 
@@ -111,14 +120,15 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-40">
-          <p className="eyebrow mb-4">Governed AI infrastructure</p>
+          <p className="eyebrow mb-4">AI access, reviewed</p>
           <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
-            AI that passes through the gate.
+            Know what your AI can reach.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            FusionAL builds governance gateways, planning tools, and operating
-            systems that let regulated teams and solo operators run AI with
-            confidence — self-hosted, auditable, yours.
+            FusionAL reviews how AI agents and tools get access to your
+            systems, writes the rules your staff follow, and keeps permissions
+            honest after launch. Fixed scope, read-only, and no platform to
+            buy.
           </p>
           <p className="mt-4 text-sm italic text-paper/50">
             Keep it{" "}
@@ -128,10 +138,10 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/mcp-token-audit"
+              href="/mcp-access-audit"
               className="rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
             >
-              MCP Token Audit · $1,500
+              MCP Access Audit · $2,500
             </Link>
             <a
               href="#offers"
@@ -147,9 +157,9 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="eyebrow mb-4">Fastest way in</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
-            Two fixed-price engagements. Scoped, then priced.
+            Three ways to work together. Scoped, then priced.
           </h2>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-3">
             {serviceOffers.map((o) => (
               <div key={o.title} className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8">
                 <p className="text-sm font-medium text-paper/70">{o.title}</p>
@@ -174,7 +184,8 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-sm text-paper/60">
-            Prefer to talk first? Email{" "}
+            Implementation work starts from $5,000 and is scoped only after an
+            audit or review. Prefer to talk first? Email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
               jrm@fusional.dev
             </a>{" "}
