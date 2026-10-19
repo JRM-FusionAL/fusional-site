@@ -33,30 +33,12 @@ function preloadHeroStill() {
 const products = [
   {
     href: "/fusional-canvas",
-    title: "FusionAL Canvas",
-    tagline: "Architecture planning canvas with built-in AI governance",
+    title: "Scoped implementation",
+    tagline: "Build agreed controls after a review",
     detail:
-      "Claude-native collaborative planning for regulated industries. Every AI action passes through a FusionAL governance gateway — auditable, policy-enforced, self-hosted.",
+      "When an audit or policy review identifies work to implement, we scope the specific changes, acceptance checks, and handoff. Implementation starts from $5,000.",
     image: "/assets/fusional-canvas-hero.webp",
-    cta: "For regulated teams",
-  },
-  {
-    href: "/aios",
-    title: "AIOS Setup Service",
-    tagline: "A done-for-you AI operating system on Claude Code",
-    detail:
-      "Cadence, routines, memory, and guardrails — installed and tuned for solopreneurs and small teams. From a $97 DIY template to full white-glove setup.",
-    image: "/assets/aios-hero.webp",
-    cta: "For solo operators",
-  },
-  {
-    href: "/tools",
-    title: "Open Source",
-    tagline: "The tooling behind it all, in the open",
-    detail:
-      "agentstack-init, FusionAL-Recall, mcp-consulting-kit, and the FusionAL governance gateway. Battle-tested on our own stack first.",
-    image: "/assets/tools-gates.webp",
-    cta: "On GitHub",
+    cta: "After a review",
   },
 ];
 
@@ -65,7 +47,7 @@ const serviceOffers = [
     title: "MCP Access Audit",
     price: "$2,500",
     terms: "Five business days · one workflow",
-    body: "For teams with AI agents or MCP tools touching their systems. A read-only permission map of one agreed workflow, observed risks and limitations, and prioritized RBAC and audit-trail actions, with a 30-minute walkthrough.",
+    body: "For a live or imminent workflow that needs an access decision. Get a one-page executive summary, permission map, evidence appendix, bounded findings, and a 30-minute walkthrough.",
     href: STRIPE_LINKS.accessAudit,
     details: "/mcp-access-audit",
     cta: "Start the audit",
@@ -74,7 +56,7 @@ const serviceOffers = [
     title: "AI Use Policy Review",
     price: "$3,500",
     terms: "Five business days · fixed price",
-    body: "For smaller regulated practices whose staff use AI assistants. A written acceptable-use policy, a settings checklist and walkthrough, a one-page staff briefing, and a findings record.",
+    body: "For regulated practices deciding how staff may use specific AI tools. Scope a new policy or revision, tool-specific settings findings, a staff briefing, and an owner-ready findings record.",
     href: STRIPE_LINKS.aiUsePolicy,
     details: "/ai-policy-review",
     cta: "Start the review",
@@ -82,8 +64,8 @@ const serviceOffers = [
   {
     title: "Agent Ops Retainer",
     price: "$2,000/mo",
-    terms: "Monthly · up to 8 advisory hours",
-    body: "For live workflows that need to stay honest. New tools and credentials checked against an agreed baseline, a permission drift check, and one written findings note each month.",
+    terms: "Monthly · up to 8 total hours",
+    body: "Requires a usable existing baseline. Manual monthly review, note, call, and advisory work share an eight-hour monthly cap. No continuous monitoring or incident response.",
     href: STRIPE_LINKS.agentOpsRetainer,
     details: "/agent-ops-retainer",
     cta: "Start the retainer",
@@ -122,13 +104,12 @@ export default function Home() {
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-40">
           <p className="eyebrow mb-4">AI access, reviewed</p>
           <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
-            Know what your AI can reach.
+            Know what one AI workflow is authorised to do.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            FusionAL reviews how AI agents and tools get access to your
-            systems, writes the rules your staff follow, and keeps permissions
-            honest after launch. Fixed scope, read-only, and no platform to
-            buy.
+            FusionAL reviews one agreed AI workflow or the rules for staff AI
+            use, then documents what the available evidence supports. Fixed
+            scope, independent of any platform purchase.
           </p>
           <p className="mt-4 text-sm italic text-paper/50">
             Keep it{" "}
@@ -157,7 +138,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="eyebrow mb-4">Fastest way in</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
-            Three ways to work together. Scoped, then priced.
+            Start with the decision you need to make.
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {serviceOffers.map((o) => (
@@ -184,8 +165,8 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-sm text-paper/60">
-            Implementation work starts from $5,000 and is scoped only after an
-            audit or review. Prefer to talk first? Email{" "}
+            Implementation starts from $5,000 and is separately scoped after
+            an audit or review. Prefer to talk first? Email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
               jrm@fusional.dev
             </a>{" "}
@@ -199,23 +180,23 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-24">
-        <p className="eyebrow mb-4">What we build</p>
-        <h2 className="mb-16 max-w-2xl text-3xl font-bold md:text-4xl">
-          Two products, one governed stack.
+        <p className="eyebrow mb-4">Implementation</p>
+        <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
+          When a review identifies work to implement.
         </h2>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8">
           {products.map((p) => (
             <Link
               key={p.href}
               href={p.href}
-              className="group overflow-hidden rounded-2xl border border-line bg-ink-2 transition-colors hover:border-gold"
+              className="group grid overflow-hidden rounded-2xl border border-line bg-ink-2 transition-colors hover:border-gold md:grid-cols-2"
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video min-h-56 overflow-hidden">
                 <Image
                   src={p.image}
                   alt=""
                   fill
-                  sizes="(min-width: 1152px) 362px, (min-width: 768px) 33vw, 100vw"
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -235,14 +216,30 @@ export default function Home() {
       </section>
 
       <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <p className="eyebrow mb-4">For solo operators and developers</p>
+          <p className="max-w-2xl text-sm leading-relaxed text-paper/60">
+            AIOS helps solo operators and small teams set up their AI routines.
+            Agentstack helps developers inspect their Claude Code or Hermes
+            harness. Both are separate from the regulated workflow review.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-5 text-sm">
+            <Link href="/aios" className="text-gold underline-offset-4 hover:underline">AIOS setup</Link>
+            <Link href="/agentstack" className="text-gold underline-offset-4 hover:underline">Agentstack</Link>
+            <Link href="/tools" className="text-gold underline-offset-4 hover:underline">Open-source tools</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24">
           <p className="eyebrow">Start a conversation</p>
           <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
-            Running AI in a regulated environment — or drowning solo?
+            Have a live or imminent AI workflow that needs an access decision?
           </h2>
           <p className="max-w-xl text-paper/70">
-            Engagements from $97 templates to $15K governed deployments. One
-            builder, no handoffs.
+            Start with one agreed workflow and the evidence available for it.
+            We can scope implementation separately if the review supports it.
           </p>
           <a
             href="mailto:jrm@fusional.dev"

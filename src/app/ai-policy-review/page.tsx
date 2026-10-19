@@ -4,7 +4,7 @@ import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
 export const metadata: Metadata = {
   title: "AI Use Policy Review | FusionAL",
   description:
-    "A five-business-day, fixed-price review for regulated practices and agencies: a written acceptable-use policy for staff AI tools, a settings checklist with a guided walkthrough, a one-page staff briefing, and a findings record.",
+    "A fixed-price review of staff AI use for regulated practices and agencies, with tool-specific rules, settings evidence, an owner-ready draft, staff briefing, and findings record.",
 };
 
 const FOR = [
@@ -14,11 +14,11 @@ const FOR = [
 ];
 
 const INCLUDES = [
-  "A written acceptable-use policy for staff AI tools: what staff may use, and what data may go into them",
-  "A configuration and settings checklist for the tools you already have",
-  "A guided walkthrough of that checklist",
+  "A written acceptable-use policy, scoped at kickoff as a new draft or revision of an existing policy",
+  "A tool-specific configuration and settings checklist, tied to the product and subscription details we can verify",
+  "A guided walkthrough of the checklist and findings",
   "A one-page staff briefing, written to be read in five minutes",
-  "A findings record, including the limitations of what was reviewed",
+  "A findings record for management approval, including review limits and questions for the client’s compliance owner or counsel",
 ];
 
 const EXCLUDED = [
@@ -40,10 +40,12 @@ export default function AiUsePolicyReview() {
             Clear rules for how your staff use AI.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-paper/60">
-            Most small regulated practices have staff using AI assistants and
-            no written rule covering what is acceptable. The AI Use Policy
-            Review writes that rule, for the tools you already use. It is a
-            policy deliverable, not legal certification.
+            Set clear rules for the AI tools your staff use or are considering.
+            At kickoff, we agree whether to draft a policy or revise an
+            existing one, the covered tool inventory, and a named client
+            owner. The review ties rules and settings findings to product and
+            subscription details we can verify. The client approves and adopts
+            the policy; this is not legal advice or certification.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -60,8 +62,9 @@ export default function AiUsePolicyReview() {
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
-            Five business days, starting once we have agreed the tools to
-            cover. After payment you go straight to booking the kickoff call.
+            Five business days start after the covered tools, policy owner,
+            inputs, and draft-versus-revision scope are agreed. After payment
+            you go straight to booking the kickoff call.
           </p>
         </div>
       </section>

@@ -4,39 +4,39 @@ import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
 export const metadata: Metadata = {
   title: "MCP Access Audit | FusionAL",
   description:
-    "A five-business-day, read-only review of one agreed workflow where AI agents or MCP tools reach your systems: a permission map, observed risks and limitations, and prioritized RBAC and audit-trail actions, in a one-page report with a 30-minute walkthrough.",
+    "A five-business-day, read-only review of one agreed AI workflow: a one-page executive summary, permission map, evidence appendix, observed risks and limits, and a 30-minute walkthrough.",
 };
 
 const LOOKS_AT = [
   {
     label: "What each credential authorises",
     detail:
-      "At server, tool, and parameter level: what the agent could actually do with the access it holds, not what the architecture diagram says.",
+      "At server, tool, and parameter level: what the inspected configuration shows each credential can do, within the agreed workflow.",
   },
   {
     label: "Scope against the task",
     detail:
-      "Where access is wider than the workflow needs: a token that only has to read one record but can write, delete, or reach everything.",
+      "Whether the permissions we can inspect appear broader than the agreed workflow requires, with each observation tied to its evidence and limits.",
   },
   {
     label: "What the audit trail can answer",
     detail:
-      "Whether you could show afterwards which identity took an action, under what permission, and what it touched.",
+      "What the agreed log sources can show about identity, permission, and action, including attribution or retention limits.",
   },
 ];
 
 const INCLUDES = [
   "Permission map for one agreed workflow: what each credential authorises, at server, tool, and parameter level",
-  "Observed risks and limitations, stated against your existing configuration",
-  "Prioritized RBAC and audit-trail actions",
-  "A one-page written report, then a 30-minute walkthrough of the findings",
+  "One-page executive summary plus a supporting permissions and evidence appendix",
+  "Evidence-backed observations, including observed access-control gaps, client-reported statements, and items that were not observable",
+  "Prioritized actions tied to the evidence, plus a 30-minute findings walkthrough",
 ];
 
 const EXCLUDED = [
   "Penetration testing or exploit development",
   "Remediation work (implementation is a separate engagement, from $5,000)",
   "Vendor selection",
-  "Any guarantee that a gap does or does not exist",
+  "Runtime assurance, production attack testing, or a guarantee of completeness or security",
 ];
 
 export default function McpAccessAudit() {
@@ -51,10 +51,10 @@ export default function McpAccessAudit() {
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-paper/60">
             The MCP Access Audit reviews one workflow you choose, where an AI
-            agent or MCP tool touches your systems. It maps what each
-            credential authorises and where the permissions need clearer
-            boundaries. It&apos;s a look, not an accusation: nothing here
-            assumes your current controls are deficient.
+            agent or MCP tool touches your systems. It maps what the agreed
+            evidence shows each credential can reach, then records observed
+            gaps, limitations, and what remains unverified. The review is
+            read-only and does not assume a problem before examining evidence.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -71,11 +71,13 @@ export default function McpAccessAudit() {
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
-            Five business days, starting once the workflow and access are
-            agreed on the kickoff call. After payment you go straight to
-            booking it.{" "}
+            Five business days start after the workflow, inventory limits, and
+            required evidence are agreed and available. If the inventory
+            exceeds an agreed limit, we pause and agree any revised scope,
+            schedule, and fee before expanding the review. After payment you go
+            straight to booking the kickoff call.{" "}
             <a href="/mcp-access-audit-scope.pdf" className="text-gold underline-offset-4 hover:underline">
-              Download the one-page scope
+              Download the scope overview
             </a>
             .
           </p>
@@ -89,8 +91,9 @@ export default function McpAccessAudit() {
             What the audit looks at.
           </h2>
           <p className="mt-3 max-w-[56ch] text-paper/60">
-            Bounded to one workflow you both agree in advance, and read-only
-            throughout. Nothing changes on your side.
+            Bounded to one agreed workflow, environment, inventory, and
+            evidence period. The review is read-only; no configuration is
+            changed.
           </p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {LOOKS_AT.map((f, i) => (
@@ -146,7 +149,8 @@ export default function McpAccessAudit() {
               <p className="eyebrow">MCP Access Audit</p>
               <p className="mt-2 font-mono text-4xl font-bold text-gold">$2,500</p>
               <p className="mt-3 max-w-[50ch] text-sm leading-relaxed text-paper/60">
-                Fixed price, five business days, one workflow. Card or ACH at
+                Fixed price, five business days after agreed access is
+                available, one workflow. Card or ACH at
                 checkout, with an invoice emailed automatically, or ask for an
                 invoice instead.
               </p>

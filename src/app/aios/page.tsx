@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { STRIPE_LINKS } from "@/lib/links";
+import { BOOKING_URL, STRIPE_LINKS } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "AIOS Setup Service | FusionAL",
@@ -21,14 +21,14 @@ const tiers = [
     price: "$497",
     href: STRIPE_LINKS.aiosGuided,
     cta: "Get guided setup",
-    body: "Template plus a working session: installed on your machine, tuned to your business, first routines live before we hang up.",
+    body: "Template plus a working session for routines agreed in advance. Bring access to the target machine, project, and tools; anything blocked by missing access is recorded for follow-up.",
   },
   {
     name: "White Glove",
     price: "$1,497",
-    href: STRIPE_LINKS.aiosWhiteGlove,
-    cta: "Get white-glove",
-    body: "Full build-out: custom routines, integrations with your calendar, comms and task stack, and 30 days of iteration support.",
+    href: BOOKING_URL,
+    cta: "Scope white-glove setup",
+    body: "Custom routines and named integrations agreed before purchase. The 30-day iteration support plan, including its hours and response windows, is set in writing before work begins.",
   },
 ];
 
@@ -49,11 +49,12 @@ export default function AIOS() {
         <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 py-24">
           <p className="eyebrow mb-4">For solo operators & small teams</p>
           <h1 className="max-w-2xl text-5xl font-bold leading-tight md:text-6xl">
-            An AI operating system, installed for you.
+            A Claude Code setup for recurring work.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            Stop prompting from scratch. Get a Claude Code setup with cadence,
-            memory, routines, and guardrails that runs your day with you.
+            Set up cadence, memory, routines, and guardrails around the work
+            you choose. The included routines and integrations depend on the
+            tier you select and the access available during setup.
           </p>
         </div>
       </section>

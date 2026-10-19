@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { STRIPE_LINKS } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "FusionAL Canvas — Governed Architecture Planning | FusionAL",
+  title: "FusionAL Canvas — Scoped Architecture Planning | FusionAL",
   description:
-    "Claude-native collaborative architecture planning with FusionAL governance for regulated industries.",
+    "Collaborative architecture planning and separately scoped implementation work for agreed AI access controls.",
 };
 
 const pillars = [
@@ -14,12 +14,12 @@ const pillars = [
     body: "Architecture diagrams that AI can read, extend, and critique — collaboratively, in real time, with your team in the loop.",
   },
   {
-    title: "Every action goes through the gate",
-    body: "The FusionAL governance gateway sits between the AI and your systems: policy enforcement, audit logs, and tool-level permissions on every call.",
+    title: "Scope the controls you need",
+    body: "A scoped implementation can configure selected tool permissions and logging through the FusionAL gateway. Coverage depends on the agreed tools, configuration, and evidence available for review.",
   },
   {
-    title: "Self-hosted for compliance",
-    body: "Deploy inside your perimeter. Nothing leaves your environment that policy doesn't allow — built for healthcare, finance, and legal.",
+    title: "Review the evidence",
+    body: "Each engagement defines the systems and actions in scope, then documents the configuration and acceptance checks completed. No claim is made about paths outside that scope.",
   },
 ];
 
@@ -43,15 +43,15 @@ export default function FusionalCanvas() {
             FusionAL Canvas
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            A collaborative architecture planning canvas where every AI action
-            is governed, logged, and yours to audit.
+            A collaborative architecture planning canvas that can support
+            scoped implementation work after an audit or review.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href={STRIPE_LINKS.canvasConsulting}
+              href={BOOKING_URL}
               className="w-fit rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
             >
-              Start at $3K
+              Scope implementation
             </a>
             <a
               href="mailto:jrm@fusional.dev?subject=FusionAL%20Canvas%20engagement"
@@ -78,11 +78,13 @@ export default function FusionalCanvas() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="eyebrow mb-4">Engagements</p>
           <h2 className="max-w-2xl text-3xl font-bold">
-            Pilot deployments from $3K. Full governed rollouts to $15K.
+            Implementation engagements start from $5,000.
           </h2>
           <p className="mt-4 max-w-xl text-paper/70">
-            Scoping call → governed pilot in your environment → production
-            rollout with your compliance team signed off at every stage.
+            After an audit or review, we agree the specific changes, systems,
+            acceptance checks, and handoff in writing. The fee and schedule are
+            quoted to that scope; broader platform or compliance outcomes are
+            not implied.
           </p>
         </div>
       </section>

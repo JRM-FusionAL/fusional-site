@@ -30,7 +30,7 @@ const TIERS = [
     billing: "one-time",
     href: BOOKING_URL,
     blurb:
-      "We fix your harness together in a 90-min working session. One harness, one project, everything wired by the time we hang up.",
+      "A 90-minute working session for one harness and one project. We agree the checklist in advance; work that needs unavailable access or exceeds the session scope is documented for a separate quote.",
     features: [
       "Audit run before the call",
       "Live fix session (90 min)",
@@ -46,7 +46,7 @@ const TIERS = [
     billing: "one-time",
     href: BOOKING_URL,
     blurb:
-      "Full harness rollout for engineering teams. We scope the engagement on a call, then build it out: memory, MCP wiring, CLAUDE.md templates, and handoff docs.",
+      "A separately scoped developer-harness configuration service for engineering teams. The written scope identifies the harnesses, integrations, access prerequisites, handoff, and acceptance checks.",
     features: [
       "Everything in Solo session",
       "Multi-developer harness config",
@@ -144,11 +144,12 @@ export default function AgentStackPage() {
       <section className="border-t border-line bg-ink-2/40">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-24">
           <h2 className="font-display text-2xl font-semibold md:text-3xl">
-            Three things most harnesses get wrong.
+            What the audit checks.
           </h2>
           <p className="mt-3 max-w-[56ch] text-paper/60">
-            The audit catches the config mistakes that make your AI harness
-            unreliable before you waste a week debugging them.
+            The CLI checks the listed configuration conditions and reports
+            what it can inspect locally. Its score is a configuration aid, not
+            a security assessment or a guarantee that a harness will work.
           </p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {CHECKS.map((check, i) => (
@@ -174,12 +175,14 @@ export default function AgentStackPage() {
                 Get a free 30-min harness review.
               </h2>
               <p className="mt-4 max-w-[48ch] leading-relaxed text-paper/60">
-                Run the audit yourself. Then book a call and we&apos;ll walk through
-                the report together, fix what&apos;s broken, and wire in anything
-                that&apos;s missing.
+                Run the audit yourself, then book a call to review its output
+                and identify the next step. Any configuration changes depend
+                on access and agreed scope; work beyond the session is scoped
+                separately.
               </p>
               <p className="mt-4 text-sm text-paper/60">
-                No pitch. No deck. We look at your config and fix it.
+                The call reviews the tool output. It does not include an
+                open-ended implementation commitment.
               </p>
             </div>
             <AgentStackEmailForm />
@@ -196,6 +199,11 @@ export default function AgentStackPage() {
           <p className="mt-3 max-w-[56ch] text-paper/60">
             The CLI is free. Paid tiers are for teams that want the setup done
             right the first time.
+          </p>
+          <p className="mt-3 max-w-[56ch] text-sm text-paper/60">
+            Team setup from $4,000 is a developer-harness configuration service.
+            It is separate from governed AI implementation, which starts from
+            $5,000 after an audit or review.
           </p>
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
