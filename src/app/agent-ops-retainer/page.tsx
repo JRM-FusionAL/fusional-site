@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Agent Ops Retainer | FusionAL",
   description:
-    "A $2,000/month review that keeps live AI agent and MCP permissions honest: new tools and credentials checked against an agreed baseline, a permission drift check, and one written findings note each month.",
+    "A $2,000/month manual review of agreed AI workflow access changes, with a monthly findings note and up to eight total hours for review, call, and advisory work. No continuous monitoring or incident response.",
 };
 
 const MONTHLY = [
-  "Review of new tools, servers, and credentials added since last month",
-  "Permission drift check against the baseline agreed at kickoff",
-  "One written findings note each month",
-  "Priority scheduling, with up to 8 hours of advisory work",
+  "A manual review of agreed evidence for changes to tools, servers, and credentials",
+  "A permission drift check against a documented baseline",
+  "One written findings note and one monthly review call",
+  "Up to 8 total hours each month across evidence review, the note, the call, and advisory work",
 ];
 
 const EXCLUDED = [
   "New implementation work",
   "On-call incident response",
   "Managed hosting or uptime guarantees",
+  "Continuous monitoring or a guaranteed incident response time",
 ];
 
 export default function AgentOpsRetainer() {
@@ -26,33 +27,39 @@ export default function AgentOpsRetainer() {
       {/* Hero */}
       <section className="mx-auto w-full max-w-6xl px-4 pt-16 pb-20 sm:px-6 md:pt-24 md:pb-28">
         <div className="max-w-[54ch]">
-          <p className="eyebrow mb-4">Monthly</p>
+          <p className="eyebrow mb-4">Monthly manual review · $2,000</p>
           <h1 className="font-display text-4xl font-bold leading-tight text-balance md:text-6xl">
-            Keep your agents&apos; permissions honest after launch.
+            Review access changes after launch.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-paper/60">
-            Once a workflow is live, the risk is drift: a tool added, a
-            credential widened, a server nobody remembers approving. The Agent
-            Ops Retainer checks what changed each month against a baseline you
-            agree at the start, and tells you in writing.
+            Once a workflow is live, tools and credentials can change. Each
+            month, we manually review the evidence you provide against an
+            agreed baseline and document what we can confirm. The $2,000 fee
+            covers up to eight total hours for review, the findings note, the
+            call, and advisory work combined.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={STRIPE_LINKS.agentOpsRetainer}
+              href={BOOKING_URL}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the retainer — $2,000/mo
+              Discuss the retainer — $2,000/mo
             </a>
             <a
-              href={BOOKING_URL}
+              href="mailto:jrm@fusional.dev"
               className="inline-flex items-center rounded-full border border-gold px-6 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-ink active:scale-[0.98]"
             >
-              Ask a question first
+              Email a question
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
-            After subscribing you go straight to booking the kickoff call, where
-            we agree the baseline for the monthly review.
+            This is a scheduled monthly review of agreed evidence, not
+            continuous monitoring. A usable existing baseline is required
+            before the retainer starts. If one does not exist, creating it
+            requires a separate written scope and fee; it is not included in
+            this monthly price. Incident response requires a separate written
+            engagement and is not included. We confirm recurring need, baseline,
+            and written scope before arranging payment.
           </p>
         </div>
       </section>
@@ -107,14 +114,15 @@ export default function AgentOpsRetainer() {
                 <a href="/mcp-access-audit" className="text-gold underline-offset-4 hover:underline">
                   MCP Access Audit
                 </a>
-                , which sets the baseline the monthly review checks against.
+                , which can establish a baseline for the monthly review. The
+                retainer requires recurring changes that justify the review.
               </p>
             </div>
             <a
-              href={STRIPE_LINKS.agentOpsRetainer}
+              href={BOOKING_URL}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the retainer
+              Discuss the retainer
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">

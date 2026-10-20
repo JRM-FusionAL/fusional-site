@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { STRIPE_LINKS } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "FusionAL Canvas — Governed Architecture Planning | FusionAL",
+  title: "FusionAL Canvas — Exploratory Project | FusionAL",
   description:
-    "Claude-native collaborative architecture planning with FusionAL governance for regulated industries.",
+    "Exploratory architecture-planning concept, not current fixed-price enrollment. Current implementation is separately scoped after a paid audit or review.",
 };
 
 const pillars = [
   {
     title: "Plan on a living canvas",
-    body: "Architecture diagrams that AI can read, extend, and critique — collaboratively, in real time, with your team in the loop.",
+    body: "The concept explores architecture diagrams that people and AI tools could work with together. It is not a promise of a production-ready product.",
   },
   {
-    title: "Every action goes through the gate",
-    body: "The FusionAL governance gateway sits between the AI and your systems: policy enforcement, audit logs, and tool-level permissions on every call.",
+    title: "Scope the controls you need",
+    body: "Any implementation needs its own agreed tools, permissions, logging, and acceptance checks. Buying a FusionAL gateway or canvas is not a prerequisite for service work.",
   },
   {
-    title: "Self-hosted for compliance",
-    body: "Deploy inside your perimeter. Nothing leaves your environment that policy doesn't allow — built for healthcare, finance, and legal.",
+    title: "Review the evidence",
+    body: "Each engagement defines the systems and actions in scope, then documents the configuration and acceptance checks completed. No claim is made about paths outside that scope.",
   },
 ];
 
@@ -38,26 +38,28 @@ export default function FusionalCanvas() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
         <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 py-24">
-          <p className="eyebrow mb-4">For regulated industries</p>
+          <p className="eyebrow mb-4">Exploratory project · updated October 20, 2026</p>
           <h1 className="max-w-2xl text-5xl font-bold leading-tight md:text-6xl">
             FusionAL Canvas
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            A collaborative architecture planning canvas where every AI action
-            is governed, logged, and yours to audit.
+            An exploratory architecture-planning concept, not current fixed-price
+            enrollment or a required platform purchase. This page preserves
+            project background. Earlier pilot terms are not a new-work offer;
+            individually agreed legacy terms remain unchanged.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
-              href={STRIPE_LINKS.canvasConsulting}
+              href={BOOKING_URL}
               className="w-fit rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
             >
-              Start at $3K
+              Discuss your workflow
             </a>
             <a
               href="mailto:jrm@fusional.dev?subject=FusionAL%20Canvas%20engagement"
               className="w-fit rounded-full border border-paper/30 px-6 py-3 font-medium transition-colors hover:border-gold hover:text-gold"
             >
-              Book a scoping call
+              Email a question
             </a>
           </div>
         </div>
@@ -76,13 +78,15 @@ export default function FusionalCanvas() {
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="eyebrow mb-4">Engagements</p>
+          <p className="eyebrow mb-4">Current services are separate</p>
           <h2 className="max-w-2xl text-3xl font-bold">
-            Pilot deployments from $3K. Full governed rollouts to $15K.
+            MCP implementation starts from $5,000, after a paid review.
           </h2>
           <p className="mt-4 max-w-xl text-paper/70">
-            Scoping call → governed pilot in your environment → production
-            rollout with your compliance team signed off at every stage.
+            After a paid audit or review, we agree the specific changes, systems,
+            acceptance checks, and handoff in writing. The fee and schedule are
+            quoted to that scope; broader platform or compliance outcomes are
+            not implied.
           </p>
         </div>
       </section>

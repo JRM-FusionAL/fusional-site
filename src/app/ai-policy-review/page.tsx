@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "AI Use Policy Review | FusionAL",
   description:
-    "A five-business-day, fixed-price review for regulated practices and agencies: a written acceptable-use policy for staff AI tools, a settings checklist with a guided walkthrough, a one-page staff briefing, and a findings record.",
+    "A $3,500 specialist review of staff AI use for smaller regulated operators: policy, settings checklist, walkthrough, staff briefing, and findings record. Confirm fit and prerequisites before payment.",
 };
 
 const FOR = [
@@ -14,11 +14,11 @@ const FOR = [
 ];
 
 const INCLUDES = [
-  "A written acceptable-use policy for staff AI tools: what staff may use, and what data may go into them",
-  "A configuration and settings checklist for the tools you already have",
-  "A guided walkthrough of that checklist",
+  "A written acceptable-use policy, scoped at kickoff as a new draft or revision of an existing policy",
+  "A tool-specific configuration and settings checklist, tied to the product and subscription details we can verify",
+  "A guided walkthrough of the checklist and findings",
   "A one-page staff briefing, written to be read in five minutes",
-  "A findings record, including the limitations of what was reviewed",
+  "A findings record for management approval, including review limits and questions for the client’s compliance owner or counsel",
 ];
 
 const EXCLUDED = [
@@ -35,33 +35,36 @@ export default function AiUsePolicyReview() {
       {/* Hero */}
       <section className="mx-auto w-full max-w-6xl px-4 pt-16 pb-20 sm:px-6 md:pt-24 md:pb-28">
         <div className="max-w-[54ch]">
-          <p className="eyebrow mb-4">Five business days · fixed price</p>
+          <p className="eyebrow mb-4">Specialist service · smaller regulated operators</p>
           <h1 className="font-display text-4xl font-bold leading-tight text-balance md:text-6xl">
             Clear rules for how your staff use AI.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-paper/60">
-            Most small regulated practices have staff using AI assistants and
-            no written rule covering what is acceptable. The AI Use Policy
-            Review writes that rule, for the tools you already use. It is a
-            policy deliverable, not legal certification.
+            Set clear rules for the AI tools your staff use or are considering.
+            At kickoff, we agree whether to draft a policy or revise an
+            existing one, the covered tool inventory, and a named client
+            owner. The review ties rules and settings findings to product and
+            subscription details we can verify. The client approves and adopts
+            the policy; this is not legal advice or certification.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={STRIPE_LINKS.aiUsePolicy}
+              href={BOOKING_URL}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the review — $3,500
+              Discuss the review — $3,500
             </a>
             <a
-              href={BOOKING_URL}
+              href="mailto:jrm@fusional.dev"
               className="inline-flex items-center rounded-full border border-gold px-6 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-ink active:scale-[0.98]"
             >
-              Ask a question first
+              Email a question
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
-            Five business days, starting once we have agreed the tools to
-            cover. After payment you go straight to booking the kickoff call.
+            Five business days start after the covered tools, policy owner,
+            inputs, and draft-versus-revision scope are agreed and available.
+            We confirm fit and written scope before arranging payment.
           </p>
         </div>
       </section>
@@ -125,15 +128,16 @@ export default function AiUsePolicyReview() {
               <p className="eyebrow">AI Use Policy Review</p>
               <p className="mt-2 font-mono text-4xl font-bold text-gold">$3,500</p>
               <p className="mt-3 max-w-[50ch] text-sm leading-relaxed text-paper/60">
-                Fixed price, five business days. Card or ACH at checkout, with
-                an invoice emailed automatically, or ask for an invoice instead.
+                Fixed price, five business days after agreed prerequisites are
+                complete. This specialist policy service is not the default
+                starting point for a general internal-workflow discussion.
               </p>
             </div>
             <a
-              href={STRIPE_LINKS.aiUsePolicy}
+              href={BOOKING_URL}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the review
+              Discuss the review
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">

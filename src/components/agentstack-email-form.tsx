@@ -39,10 +39,10 @@ export function AgentStackEmailForm() {
   if (status === "sent") {
     return (
       <div className="rounded-2xl border border-line bg-ink-2 p-8">
-        <h3 className="font-display font-medium">You&apos;re on the list.</h3>
+        <h3 className="font-display font-medium">Your request was submitted.</h3>
         <p className="mt-2 text-sm leading-relaxed text-paper/60">
-          I&apos;ll follow up within one business day to schedule your free 30-min
-          review.
+          Thank you for the context. We can discuss fit and next steps before
+          agreeing any paid work. This does not book an engagement.
         </p>
       </div>
     );
@@ -103,7 +103,7 @@ export function AgentStackEmailForm() {
         disabled={status === "sending"}
         className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98] disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Book free review"}
+        {status === "sending" ? "Sending…" : "Request a conversation"}
       </button>
     </form>
   );
