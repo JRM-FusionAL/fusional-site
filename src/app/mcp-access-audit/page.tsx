@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "MCP Access Audit | FusionAL",
   description:
-    "A five-business-day, read-only review of one agreed AI workflow: a one-page executive summary, permission map, evidence appendix, observed risks and limits, and a 30-minute walkthrough.",
+    "A $2,500 read-only review of one live or imminently deployed agent/MCP workflow. Five business days after agreed prerequisites; permission map, evidence, limitations, and walkthrough. Confirm fit before payment.",
 };
 
 const LOOKS_AT = [
@@ -35,7 +35,8 @@ const INCLUDES = [
 const EXCLUDED = [
   "Penetration testing or exploit development",
   "Remediation work (implementation is a separate engagement, from $5,000)",
-  "Vendor selection",
+  "Vendor selection, continuous monitoring, or incident response",
+  "Certification, legal opinion, or assurance over systems or traffic not observed",
   "Runtime assurance, production attack testing, or a guarantee of completeness or security",
 ];
 
@@ -58,24 +59,24 @@ export default function McpAccessAudit() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={STRIPE_LINKS.accessAudit}
+              href={BOOKING_URL}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the audit — $2,500
+              Discuss the audit — $2,500
             </a>
             <a
-              href={BOOKING_URL}
+              href="mailto:jrm@fusional.dev"
               className="inline-flex items-center rounded-full border border-gold px-6 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-ink active:scale-[0.98]"
             >
-              Ask a question first
+              Email a question
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
             Five business days start after the workflow, inventory limits, and
             required evidence are agreed and available. If the inventory
             exceeds an agreed limit, we pause and agree any revised scope,
-            schedule, and fee before expanding the review. After payment you go
-            straight to booking the kickoff call.{" "}
+            schedule, and fee before expanding the review. We confirm fit and
+            written scope before arranging payment.{" "}
             <a href="/mcp-access-audit-scope.pdf" className="text-gold underline-offset-4 hover:underline">
               Download the scope overview
             </a>
@@ -150,20 +151,19 @@ export default function McpAccessAudit() {
               <p className="mt-2 font-mono text-4xl font-bold text-gold">$2,500</p>
               <p className="mt-3 max-w-[50ch] text-sm leading-relaxed text-paper/60">
                 Fixed price, five business days after agreed access is
-                available, one workflow. Card or ACH at
-                checkout, with an invoice emailed automatically, or ask for an
-                invoice instead.
+                available, one workflow. A live or imminently deployed agent/MCP
+                workflow and a named owner are required. Confirm scope before payment.
               </p>
             </div>
             <a
-              href={STRIPE_LINKS.accessAudit}
+              href={BOOKING_URL}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the audit
+              Discuss the audit
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">
-            Already live and want it kept honest? See the{" "}
+            Have a usable baseline and recurring changes to review? Consider the{" "}
             <a href="/agent-ops-retainer" className="text-gold underline-offset-4 hover:underline">
               Agent Ops Retainer
             </a>

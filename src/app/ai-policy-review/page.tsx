@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "AI Use Policy Review | FusionAL",
   description:
-    "A fixed-price review of staff AI use for regulated practices and agencies, with tool-specific rules, settings evidence, an owner-ready draft, staff briefing, and findings record.",
+    "A $3,500 specialist review of staff AI use for smaller regulated operators: policy, settings checklist, walkthrough, staff briefing, and findings record. Confirm fit and prerequisites before payment.",
 };
 
 const FOR = [
@@ -35,7 +35,7 @@ export default function AiUsePolicyReview() {
       {/* Hero */}
       <section className="mx-auto w-full max-w-6xl px-4 pt-16 pb-20 sm:px-6 md:pt-24 md:pb-28">
         <div className="max-w-[54ch]">
-          <p className="eyebrow mb-4">Five business days · fixed price</p>
+          <p className="eyebrow mb-4">Specialist service · smaller regulated operators</p>
           <h1 className="font-display text-4xl font-bold leading-tight text-balance md:text-6xl">
             Clear rules for how your staff use AI.
           </h1>
@@ -49,22 +49,22 @@ export default function AiUsePolicyReview() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={STRIPE_LINKS.aiUsePolicy}
+              href={BOOKING_URL}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the review — $3,500
+              Discuss the review — $3,500
             </a>
             <a
-              href={BOOKING_URL}
+              href="mailto:jrm@fusional.dev"
               className="inline-flex items-center rounded-full border border-gold px-6 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-ink active:scale-[0.98]"
             >
-              Ask a question first
+              Email a question
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
             Five business days start after the covered tools, policy owner,
-            inputs, and draft-versus-revision scope are agreed. After payment
-            you go straight to booking the kickoff call.
+            inputs, and draft-versus-revision scope are agreed and available.
+            We confirm fit and written scope before arranging payment.
           </p>
         </div>
       </section>
@@ -128,15 +128,16 @@ export default function AiUsePolicyReview() {
               <p className="eyebrow">AI Use Policy Review</p>
               <p className="mt-2 font-mono text-4xl font-bold text-gold">$3,500</p>
               <p className="mt-3 max-w-[50ch] text-sm leading-relaxed text-paper/60">
-                Fixed price, five business days. Card or ACH at checkout, with
-                an invoice emailed automatically, or ask for an invoice instead.
+                Fixed price, five business days after agreed prerequisites are
+                complete. This specialist policy service is not the default
+                starting point for a general internal-workflow discussion.
               </p>
             </div>
             <a
-              href={STRIPE_LINKS.aiUsePolicy}
+              href={BOOKING_URL}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the review
+              Discuss the review
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">

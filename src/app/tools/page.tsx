@@ -18,7 +18,7 @@ const repos = [
   },
   {
     name: "FusionAL",
-    desc: "Self-hosted MCP governance gateway for regulated environments. FastAPI, Docker, policy-enforced tool calls.",
+    desc: "Self-hosted MCP gateway project exploring tool-call policies. FastAPI and Docker; coverage depends on configuration and the paths actually routed through it.",
     href: "https://github.com/JRM-FusionAL",
   },
   {
@@ -28,7 +28,7 @@ const repos = [
   },
   {
     name: "mcp-consulting-kit",
-    desc: "A curated MCP server collection for consulting deployments, Dockerized and ready to govern.",
+    desc: "A curated, Dockerized MCP server collection. Each deployment still needs its own access review and acceptance checks.",
     href: "https://github.com/JRM-FusionAL",
   },
 ];
@@ -38,8 +38,9 @@ export default function Tools() {
     <section className="mx-auto max-w-6xl px-6 py-24">
       <p className="eyebrow mb-4">Open source</p>
       <h1 className="max-w-2xl text-4xl font-bold md:text-5xl">
-        Built in the open, hardened on our own stack.
+        Open-source tools from the FusionAL stack.
       </h1>
+      <p className="mt-6 max-w-2xl text-paper/60">Project background, not a required platform purchase or proof of customer outcomes. Service work starts with the workflow and the evidence available.</p>
       <div className="relative mt-12 aspect-[21/9] overflow-hidden rounded-2xl border border-line">
         <Image
           src="/assets/tools-gates.webp"

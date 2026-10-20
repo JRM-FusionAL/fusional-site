@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const posts = [
   {
     title: "9 Seconds. One AI Agent. A Wiped Production Database.",
-    desc: "What ungoverned agent access costs — and the gateway pattern that prevents it.",
+    desc: "A discussion of agent access risks and the limits of gateway controls.",
     href: "https://dev.to/jonathanmeltonfusional/-9-seconds-one-ai-agent-a-wiped-production-database-4i7a",
   },
   {
@@ -38,6 +38,7 @@ export default function Writing() {
       <h1 className="max-w-2xl text-4xl font-bold md:text-5xl">
         Build logs from the governed-AI trenches.
       </h1>
+      <p className="mt-6 max-w-2xl text-paper/60">Context updated October 20, 2026: these historical essays and build logs are project background, not current service terms or customer evidence. Current work starts with one lower-risk internal workflow and an agreed scope.</p>
       <div className="relative mt-12 aspect-[21/9] overflow-hidden rounded-2xl border border-line">
         <Image
           src="/assets/writing-portal.webp"

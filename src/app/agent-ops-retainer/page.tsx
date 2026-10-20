@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { STRIPE_LINKS, BOOKING_URL } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Agent Ops Retainer | FusionAL",
@@ -40,16 +40,16 @@ export default function AgentOpsRetainer() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={STRIPE_LINKS.agentOpsRetainer}
+              href={BOOKING_URL}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the retainer — $2,000/mo
+              Discuss the retainer — $2,000/mo
             </a>
             <a
-              href={BOOKING_URL}
+              href="mailto:jrm@fusional.dev"
               className="inline-flex items-center rounded-full border border-gold px-6 py-3 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-ink active:scale-[0.98]"
             >
-              Ask a question first
+              Email a question
             </a>
           </div>
           <p className="mt-4 text-sm text-paper/50">
@@ -58,7 +58,8 @@ export default function AgentOpsRetainer() {
             before the retainer starts. If one does not exist, creating it
             requires a separate written scope and fee; it is not included in
             this monthly price. Incident response requires a separate written
-            engagement and is not included.
+            engagement and is not included. We confirm recurring need, baseline,
+            and written scope before arranging payment.
           </p>
         </div>
       </section>
@@ -118,10 +119,10 @@ export default function AgentOpsRetainer() {
               </p>
             </div>
             <a
-              href={STRIPE_LINKS.agentOpsRetainer}
+              href={BOOKING_URL}
               className="inline-flex shrink-0 items-center rounded-full bg-molten px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Start the retainer
+              Discuss the retainer
             </a>
           </div>
           <p className="mt-6 text-sm text-paper/50">

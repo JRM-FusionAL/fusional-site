@@ -1,35 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { BOOKING_URL, STRIPE_LINKS } from "@/lib/links";
+import { BOOKING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "AIOS Setup Service | FusionAL",
+  title: "AIOS — Historical Project | FusionAL",
   description:
-    "Done-for-you Claude Code AI operating systems for solopreneurs and small teams.",
+    "Historical AIOS setup concept: cadence, memory, routines, and guardrails. Not current fixed-price enrollment; discuss a workflow before agreeing new work.",
 };
 
-const tiers = [
-  {
-    name: "DIY Template",
-    price: "$97",
-    href: STRIPE_LINKS.aiosTemplate,
-    cta: "Get the template",
-    body: "The AIOS template repo: cadence, routines, memory system, and guardrails, documented for self-install on Claude Code.",
-  },
-  {
-    name: "Guided Setup",
-    price: "$497",
-    href: STRIPE_LINKS.aiosGuided,
-    cta: "Get guided setup",
-    body: "Template plus a working session for routines agreed in advance. Bring access to the target machine, project, and tools; anything blocked by missing access is recorded for follow-up.",
-  },
-  {
-    name: "White Glove",
-    price: "$1,497",
-    href: BOOKING_URL,
-    cta: "Scope white-glove setup",
-    body: "Custom routines and named integrations agreed before purchase. The 30-day iteration support plan, including its hours and response windows, is set in writing before work begins.",
-  },
+const concepts = [
+  { name: "Cadence", body: "The AIOS concept explored routines around recurring work rather than isolated prompts." },
+  { name: "Memory", body: "Project context and documented decisions were part of the setup approach." },
+  { name: "Guardrails", body: "Tool access, review boundaries, and human approval still need to be defined for each actual workflow." },
 ];
 
 export default function AIOS() {
@@ -47,45 +29,37 @@ export default function AIOS() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
         <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 py-24">
-          <p className="eyebrow mb-4">For solo operators & small teams</p>
+          <p className="eyebrow mb-4">Historical project · updated October 20, 2026</p>
           <h1 className="max-w-2xl text-5xl font-bold leading-tight md:text-6xl">
-            A Claude Code setup for recurring work.
+            AIOS: a setup concept for recurring work.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            Set up cadence, memory, routines, and guardrails around the work
-            you choose. The included routines and integrations depend on the
-            tier you select and the access available during setup.
+            This page preserves the earlier AIOS concept, not current fixed-price
+            enrollment. The former template and setup tiers are not the default
+            way to start with FusionAL. Individually agreed legacy terms remain
+            unchanged; new work begins with a workflow conversation.
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="grid gap-8 md:grid-cols-3">
-          {tiers.map((t) => (
+          {concepts.map((t) => (
             <div
               key={t.name}
               className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8"
             >
               <p className="eyebrow">{t.name}</p>
-              <p className="mt-3 font-display text-4xl font-bold text-gold">
-                {t.price}
-              </p>
               <p className="mt-4 leading-relaxed text-paper/60">{t.body}</p>
-              <a
-                href={t.href}
-                className="mt-6 inline-block rounded-full border border-paper/30 px-5 py-2.5 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
-              >
-                {t.cta}
-              </a>
             </div>
           ))}
         </div>
         <div className="mt-12 flex flex-wrap items-center gap-4">
           <a
-            href="mailto:jrm@fusional.dev?subject=AIOS%20setup"
+            href={BOOKING_URL}
             className="inline-block rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
           >
-            Not sure which? Ask me
+            Discuss your current workflow
           </a>
         </div>
       </section>

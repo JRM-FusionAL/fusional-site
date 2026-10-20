@@ -23,56 +23,6 @@ const CHECKS = [
   },
 ];
 
-const TIERS = [
-  {
-    name: "Solo session",
-    price: "$750",
-    billing: "one-time",
-    href: BOOKING_URL,
-    blurb:
-      "A 90-minute working session for one harness and one project. We agree the checklist in advance; work that needs unavailable access or exceeds the session scope is documented for a separate quote.",
-    features: [
-      "Audit run before the call",
-      "Live fix session (90 min)",
-      "CLAUDE.md + MCP config written for your project",
-      "Score rechecked at the end",
-    ],
-    featured: false,
-    cta: "Book a session",
-  },
-  {
-    name: "Team setup",
-    price: "from $4,000",
-    billing: "one-time",
-    href: BOOKING_URL,
-    blurb:
-      "A separately scoped developer-harness configuration service for engineering teams. The written scope identifies the harnesses, integrations, access prerequisites, handoff, and acceptance checks.",
-    features: [
-      "Everything in Solo session",
-      "Multi-developer harness config",
-      "Shared memory and recall setup",
-      "Written handoff + team walkthrough",
-    ],
-    featured: true,
-    cta: "Scope a project",
-  },
-  {
-    name: "Retainer",
-    price: "$99 / mo",
-    billing: "solo · team from $750/mo",
-    href: BOOKING_URL,
-    blurb:
-      "Ongoing harness health. Monthly audit, config updates as your tooling changes, and a standing async channel for harness questions.",
-    features: [
-      "Monthly audit + score report",
-      "Config updates when tools change",
-      "Async Q&A (48h response)",
-    ],
-    featured: false,
-    cta: "Start a retainer",
-  },
-];
-
 export default function AgentStackPage() {
   return (
     <>
@@ -93,7 +43,7 @@ export default function AgentStackPage() {
               href={BOOKING_URL}
               className="inline-flex items-center rounded-full bg-molten px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-molten-deep active:scale-[0.98]"
             >
-              Book free 30-min review
+              Discuss your workflow
             </a>
             <a
               href="https://github.com/JRM-FusionAL/agentstack-init"
@@ -110,7 +60,7 @@ export default function AgentStackPage() {
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-            <span className="ml-3 font-mono text-xs text-paper/50">terminal</span>
+            <span className="ml-3 font-mono text-xs text-paper/50">illustrative output · not a security assessment</span>
           </div>
           <pre className="overflow-x-auto px-6 py-5 font-mono text-sm leading-relaxed">
             <span className="text-paper/50">$ </span>
@@ -135,7 +85,7 @@ export default function AgentStackPage() {
             <span className="text-paper/60">Full report: .fusional/audit-report.json</span>
             {"\n\n"}
             <span className="text-green-400">→ </span>
-            <span className="text-paper/80">Book a free 30-min review: agentstack.fyi/audit</span>
+            <span className="text-paper/80">Discuss next steps with FusionAL</span>
           </pre>
         </div>
       </section>
@@ -172,17 +122,16 @@ export default function AgentStackPage() {
           <div className="grid gap-12 md:grid-cols-2">
             <div>
               <h2 className="font-display text-2xl font-semibold md:text-3xl">
-                Get a free 30-min harness review.
+                Ask about your harness or workflow.
               </h2>
               <p className="mt-4 max-w-[48ch] leading-relaxed text-paper/60">
-                Run the audit yourself, then book a call to review its output
-                and identify the next step. Any configuration changes depend
-                on access and agreed scope; work beyond the session is scoped
-                separately.
+                Run the audit yourself and tell us what you need help with.
+                We confirm fit before proposing paid work. Configuration changes
+                depend on access and a separately agreed scope.
               </p>
               <p className="mt-4 text-sm text-paper/60">
-                The call reviews the tool output. It does not include an
-                open-ended implementation commitment.
+                Send only non-sensitive context. Do not send credentials or
+                confidential records. A request is not a booked engagement.
               </p>
             </div>
             <AgentStackEmailForm />
@@ -190,76 +139,16 @@ export default function AgentStackPage() {
         </div>
       </section>
 
-      {/* Pricing */}
       <section id="pricing" className="border-t border-line bg-ink-2/40">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-          <h2 className="font-display text-2xl font-semibold md:text-3xl">
-            Fix it yourself, or fix it with me.
-          </h2>
+          <h2 className="font-display text-2xl font-semibold md:text-3xl">Tool first, service only if it fits.</h2>
           <p className="mt-3 max-w-[56ch] text-paper/60">
-            The CLI is free. Paid tiers are for teams that want the setup done
-            right the first time.
+            The CLI is open source. Earlier paid harness tiers are historical,
+            not current fixed-price enrollment. Individually agreed legacy terms
+            remain unchanged. New assistance needs a named problem, agreed scope,
+            prerequisites, acceptance checks, handoff, and a separate quote.
           </p>
-          <p className="mt-3 max-w-[56ch] text-sm text-paper/60">
-            Team setup from $4,000 is a developer-harness configuration service.
-            It is separate from governed AI implementation, which starts from
-            $5,000 after an audit or review.
-          </p>
-
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
-            {TIERS.map((tier) => (
-              <div
-                key={tier.name}
-                className={`flex flex-col rounded-2xl border p-7 ${
-                  tier.featured
-                    ? "border-gold/50 bg-ink-2"
-                    : "border-line bg-ink-2"
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-medium">{tier.name}</h3>
-                  <div className="text-right">
-                    <span className="font-mono text-xl font-semibold leading-none">
-                      {tier.price}
-                    </span>
-                    <p className="mt-0.5 font-mono text-xs text-paper/60">{tier.billing}</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-paper/60">{tier.blurb}</p>
-                <ul className="mt-5 space-y-2 text-sm">
-                  {tier.features.map((f) => (
-                    <li key={f} className="flex gap-2.5">
-                      <span
-                        aria-hidden
-                        className="mt-[7px] h-px w-3 shrink-0 bg-gold"
-                      />
-                      <span className="text-paper/90">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-7 flex-1" />
-                <a
-                  href={tier.href}
-                  className={`inline-flex w-full items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-colors active:scale-[0.98] ${
-                    tier.featured
-                      ? "bg-molten text-ink hover:bg-molten-deep"
-                      : "border border-gold text-gold hover:bg-gold hover:text-ink"
-                  }`}
-                >
-                  {tier.cta}
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4 rounded-2xl border border-line bg-ink-2 p-7">
-            <p className="text-sm text-paper/60">
-              <span className="font-medium text-paper">Free tier:</span>{" "}
-              <code className="font-mono">pip install agentstack-init</code> and run{" "}
-              <code className="font-mono">agentstack-init audit</code> locally. The
-              CLI is open source and always will be.
-            </p>
-          </div>
+          <a href={BOOKING_URL} className="mt-6 inline-block text-gold underline-offset-4 hover:underline">Discuss your workflow</a>
         </div>
       </section>
     </>

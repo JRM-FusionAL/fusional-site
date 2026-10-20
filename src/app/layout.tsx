@@ -27,13 +27,13 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
-  title: "FusionAL — Governed AI for Regulated Industries",
+  title: "FusionAL — Practical AI Workflow Services",
   description:
-    "Keep it Flowing while Always Knowing. Fixed-scope reviews of what your AI agents can reach, written AI use policies for regulated practices, and monthly oversight after launch.",
+    "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
   openGraph: {
-    title: "FusionAL — Governed AI for Regulated Industries",
+    title: "FusionAL — Practical AI Workflow Services",
     description:
-      "Fixed-scope reviews of what your AI agents can reach, written AI use policies for regulated practices, and monthly oversight after launch.",
+      "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
     url: "https://fusional.dev",
     siteName: "FusionAL",
     images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
@@ -41,19 +41,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FusionAL — Governed AI for Regulated Industries",
+    title: "FusionAL — Practical AI Workflow Services",
     description:
-      "Fixed-scope reviews of what your AI agents can reach, written AI use policies, and monthly oversight after launch.",
+      "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
     images: ["/assets/og-card.jpg"],
   },
 };
 
 const nav = [
+  { href: "/#offers", label: "Services" },
   { href: "/mcp-access-audit", label: "MCP Audit" },
-  { href: "/ai-policy-review", label: "AI Policy" },
-  { href: "/agent-ops-retainer", label: "Retainer" },
-  { href: "/fusional-canvas", label: "FusionAL Canvas" },
-  { href: "/aios", label: "AIOS" },
+  { href: "/agent-ops-retainer", label: "Agent Ops" },
   { href: "/tools", label: "Open Source" },
   { href: "/writing", label: "Writing" },
 ];
@@ -93,12 +91,12 @@ export default function RootLayout({
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="mailto:jrm@fusional.dev"
+              <Link
+                href="/#contact"
                 className="whitespace-nowrap rounded-full border border-gold px-3 py-1 text-gold transition-colors hover:bg-gold hover:text-ink sm:px-4 sm:py-1.5"
               >
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
         </header>
