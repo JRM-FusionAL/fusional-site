@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
   title: "FusionAL — Practical AI Workflow Services",
   description:
-    "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
+    "AI workflow review and integration for small software teams. Improve one internal task with practical checks, clear scope, and a handoff your team can use.",
   openGraph: {
     title: "FusionAL — Practical AI Workflow Services",
     description:
-      "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
+      "AI workflow review and integration for small software teams. Improve one internal task with practical checks, clear scope, and a handoff your team can use.",
     url: "https://fusional.dev",
     siteName: "FusionAL",
     images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
@@ -43,15 +43,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FusionAL — Practical AI Workflow Services",
     description:
-      "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
+      "AI workflow review and integration for small software teams. Improve one internal task with practical checks, clear scope, and a handoff your team can use.",
     images: ["/assets/og-card.jpg"],
   },
 };
 
 const nav = [
   { href: "/#offers", label: "Services" },
-  { href: "/mcp-access-audit", label: "MCP Audit" },
-  { href: "/agent-ops-retainer", label: "Agent Ops" },
   { href: "/tools", label: "Open Source" },
   { href: "/writing", label: "Writing" },
 ];

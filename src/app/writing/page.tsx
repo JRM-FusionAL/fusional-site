@@ -36,9 +36,9 @@ export default function Writing() {
     <section className="mx-auto max-w-6xl px-6 py-24">
       <p className="eyebrow mb-4">Writing</p>
       <h1 className="max-w-2xl text-4xl font-bold md:text-5xl">
-        Build logs from the governed-AI trenches.
+        Notes on building and using AI workflows.
       </h1>
-      <p className="mt-6 max-w-2xl text-paper/60">Context updated October 20, 2026: these historical essays and build logs are project background, not current service terms or customer evidence. Current work starts with one lower-risk internal workflow and an agreed scope.</p>
+      <p className="mt-6 max-w-2xl text-paper/60">Context updated October 26, 2026: these historical essays and build logs are project background, not current service terms or customer evidence. Current work starts with one lower-risk internal workflow and an agreed scope.</p>
       <div className="relative mt-12 aspect-[21/9] overflow-hidden rounded-2xl border border-line">
         <Image
           src="/assets/writing-portal.webp"

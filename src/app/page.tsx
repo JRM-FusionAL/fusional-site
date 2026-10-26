@@ -32,43 +32,43 @@ function preloadHeroStill() {
 
 const products = [
   {
-    href: "#contact",
-    title: "Scoped implementation",
-    tagline: "Build agreed controls after a paid review",
+    href: "/mcp-access-audit",
+    title: "MCP Access Audit",
+    tagline: "$2,500 · one existing agent/MCP workflow",
     detail:
-      "After a paid audit or review, we quote named changes, prerequisites, acceptance checks, exclusions, and an understandable handoff. MCP implementation starts from $5,000; it is not an automatic next step or a general workflow setup price.",
+      "For teams with a live or imminently deployed agent/MCP workflow and a named owner. A read-only access review, permission map, evidence, findings, and walkthrough. Five business days after agreed prerequisites.",
     image: "/assets/fusional-canvas-hero.webp",
-    cta: "After a review",
+    cta: "Specialist access review",
   },
 ];
 
 const serviceOffers = [
   {
-    title: "Discuss one workflow",
-    price: "Scope first",
-    terms: "Fit before a quote or payment",
-    body: "Tell us what your team is trying to do, where manual work or unreliable output gets in the way, and who owns the process. No MCP setup is required for this conversation. Any new engagement needs its own agreed scope, effort, price, and payment path.",
+    title: "Review one workflow",
+    price: "Understand it",
+    terms: "A defined problem and practical next steps",
+    body: "Walk through the task, tools, inputs, and current workaround. Identify where manual effort or unreliable AI output gets in the way, what needs human review, and what a useful result would look like. No MCP setup is required for this conversation.",
     href: BOOKING_URL,
     details: "#contact",
     cta: "Discuss your workflow",
   },
   {
-    title: "MCP Access Audit",
-    price: "$2,500",
-    terms: "Five business days after prerequisites · one workflow",
-    body: "Only for a live or imminently deployed agent/MCP workflow with a named owner and an access decision to make. Read-only review, permission map, evidence appendix, bounded findings, and a 30-minute walkthrough.",
+    title: "Scoped integration",
+    price: "Connect it",
+    terms: "Agreed scope and price before work begins",
+    body: "Connect the tools needed for one internal workflow. Agree the inputs, access, approval steps, acceptance checks, and exclusions before building. Get a walkthrough and written handoff your team can use. Each engagement has its own agreed scope, effort, price, and payment path.",
     href: BOOKING_URL,
-    details: "/mcp-access-audit",
-    cta: "Check audit fit",
+    details: "#contact",
+    cta: "Discuss an integration",
   },
   {
-    title: "Agent Ops Retainer",
-    price: "$2,000/mo",
-    terms: "Monthly · up to 8 total hours",
-    body: "Requires a usable existing baseline and recurring changes worth reviewing. Manual review, findings note, calls, and advisory share the eight-hour cap. No continuous monitoring, incident response, or uptime guarantee.",
+    title: "Ongoing workflow review",
+    price: "Keep it useful",
+    terms: "For an existing workflow with recurring changes",
+    body: "Review changes to tools, access, and workflow behavior against an existing baseline. Agree the review cadence and limits around actual recurring work. The existing Agent Ops Retainer is $2,000/month for up to eight total hours of manual review, calls, and advisory.",
     href: BOOKING_URL,
     details: "/agent-ops-retainer",
-    cta: "Discuss recurring review",
+    cta: "Discuss ongoing review",
   },
 ];
 
@@ -107,10 +107,11 @@ export default function Home() {
             Make one AI workflow work for your team.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            FusionAL starts with your workflow, not a platform purchase.
-            We focus first on lower-risk internal work for non-regulated teams:
-            understand the problem, agree a bounded outcome, and define the
-            review or integration work and handoff needed.
+            Practical AI workflow review and integration for small software teams.
+            Start with one internal task: preparing a weekly report, finding
+            information in team documents, or drafting an internal update.
+            Agree what it should do, check the result, and give your team a
+            clear handoff.
           </p>
           <p className="mt-4 text-sm italic text-paper/50">
             Keep it{" "}
@@ -166,8 +167,9 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-sm text-paper/60">
-            We confirm fit and scope before payment. Lower-risk does not mean
-            no privacy, security, contractual, or legal obligations. Email{" "}
+            We confirm fit and scope before payment. Start with lower-risk
+            internal work, with clear data boundaries and human approval for
+            consequential actions. Email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
               jrm@fusional.dev
             </a>{" "}
@@ -181,9 +183,9 @@ export default function Home() {
       </section>
 
       <section id="implementation" className="mx-auto max-w-6xl px-6 py-24">
-        <p className="eyebrow mb-4">Implementation</p>
+        <p className="eyebrow mb-4">Already using MCP?</p>
         <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
-          Implementation follows a paid review and a written scope.
+          A focused access review when your workflow needs it.
         </h2>
         <div className="grid gap-8">
           {products.map((p) => (
@@ -218,16 +220,15 @@ export default function Home() {
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <p className="eyebrow mb-4">Specialist policy work and project background</p>
+          <p className="eyebrow mb-4">Tools and project background</p>
           <p className="max-w-2xl text-sm leading-relaxed text-paper/60">
-            The AI Use Policy Review remains a separate $3,500 specialist
-            service for smaller regulated operators with staff AI-use questions,
-            not the default entry for ordinary workflow work. AIOS and Canvas
-            are historical or exploratory projects, not current fixed-price
-            enrollment. Agentstack is an open-source configuration tool.
+            MCP is relevant when your workflow uses it. After a paid audit or
+            review, MCP implementation starts from $5,000 under a separate
+            written scope. General workflow work is quoted individually.
+            AIOS and Canvas are historical or exploratory projects.
+            Agentstack is an open-source configuration tool.
           </p>
           <div className="mt-5 flex flex-wrap gap-5 text-sm">
-            <Link href="/ai-policy-review" className="text-gold underline-offset-4 hover:underline">Specialist AI policy review</Link>
             <Link href="/aios" className="text-gold underline-offset-4 hover:underline">AIOS background</Link>
             <Link href="/fusional-canvas" className="text-gold underline-offset-4 hover:underline">Canvas exploration</Link>
             <Link href="/agentstack" className="text-gold underline-offset-4 hover:underline">Agentstack</Link>
@@ -246,7 +247,7 @@ export default function Home() {
             Tell us the task, the tools involved, what is not working, and who
             owns it. Start with a non-sensitive description; do not send
             credentials, customer records, or confidential data. We will discuss
-            fit before proposing work. No existing package has to fit every need.
+            fit, agree the outcome and acceptance checks, and quote the work.
           </p>
           <a
             href="mailto:jrm@fusional.dev"

@@ -22,7 +22,7 @@ test('all existing page routes remain, with no direct payment enrollment', () =>
 test('home and shared metadata lead with lower-risk workflow services', () => {
   const home = normalize(page());
   const layout = read('src/app/layout.tsx');
-  assert.match(home, /lower-risk internal work for non-regulated teams/);
+  assert.match(home, /workflow review and integration for small software teams/);
   assert.match(home, /confirm fit and scope before payment/);
   assert.match(home, /No MCP setup is required for this conversation/);
   assert.match(home, /own agreed scope, effort, price, and payment path/);
@@ -33,7 +33,7 @@ test('home and shared metadata lead with lower-risk workflow services', () => {
   const nav = layout.slice(layout.indexOf('const nav ='), layout.indexOf('export default'));
   assert.doesNotMatch(nav, /aios|fusional-canvas|ai-policy-review/);
   assert.match(nav, /\/#offers/);
-  assert.match(home, /separate \$3,500 specialist service for smaller regulated operators/);
+  assert.doesNotMatch(home, /ai-policy-review|smaller regulated operators/);
 });
 
 test('current prices, prerequisites and limits remain explicit', () => {
@@ -52,11 +52,9 @@ test('current prices, prerequisites and limits remain explicit', () => {
   assert.match(ops, /not continuous monitoring/);
   assert.match(ops, /before arranging payment/);
   const policy = normalize(page('ai-policy-review'));
-  assert.match(policy, /\$3,500/);
-  assert.match(policy, /smaller regulated operators/);
-  assert.match(policy, /not legal advice or certification/);
-  assert.match(policy, /not the default/);
-  assert.match(policy, /before arranging payment/);
+  assert.match(policy, /no longer offered for new engagements/);
+  assert.match(policy, /index: false/);
+  assert.doesNotMatch(policy, /BOOKING_URL|\$3,500|smaller regulated operators/);
   assert.match(normalize(page()), /MCP implementation starts from \$5,000/);
   assert.match(normalize(page()), /After a paid audit or review/);
 });
