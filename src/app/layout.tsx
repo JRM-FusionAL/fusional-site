@@ -27,13 +27,13 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
-  title: "FusionAL — Practical AI Workflow Services",
+  title: "FusionAL — AI Implementation for Small Businesses",
   description:
-    "AI workflow review and integration for small software teams. Improve one internal task with practical checks, clear scope, and a handoff your team can use.",
+    "AI implementation for small businesses. Summarize inquiries, prepare responses for human review, and record the next step using your existing tools.",
   openGraph: {
-    title: "FusionAL — Practical AI Workflow Services",
+    title: "FusionAL — AI Implementation for Small Businesses",
     description:
-      "AI workflow review and integration for small software teams. Improve one internal task with practical checks, clear scope, and a handoff your team can use.",
+      "AI implementation for small businesses. Summarize inquiries, prepare responses for human review, and record the next step using your existing tools.",
     url: "https://fusional.dev",
     siteName: "FusionAL",
     images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FusionAL — Practical AI Workflow Services",
+    title: "FusionAL — AI Implementation for Small Businesses",
     description:
-      "AI workflow review and integration for small software teams. Improve one internal task with practical checks, clear scope, and a handoff your team can use.",
+      "AI implementation for small businesses. Summarize inquiries, prepare responses for human review, and record the next step using your existing tools.",
     images: ["/assets/og-card.jpg"],
   },
 };
 
 const nav = [
-  { href: "/#offers", label: "Services" },
+  { href: "/small-business-ai", label: "Small Business AI" },
   { href: "/tools", label: "Open Source" },
   { href: "/writing", label: "Writing" },
 ];

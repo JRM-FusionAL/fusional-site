@@ -9,7 +9,7 @@ const root = resolve(process.env.SITE_SOURCE_ROOT || '.');
 const read = (path) => readFileSync(join(root, path), 'utf8');
 const page = (route = '') => read(`src/app/${route ? `${route}/` : ''}page.tsx`);
 const normalize = (text) => text.replace(/\s+/g, ' ');
-const routes = ['', 'mcp-access-audit', 'ai-policy-review', 'agent-ops-retainer', 'aios', 'fusional-canvas', 'agentstack', 'tools', 'writing'];
+const routes = ['', 'small-business-ai', 'mcp-access-audit', 'ai-policy-review', 'agent-ops-retainer', 'aios', 'fusional-canvas', 'agentstack', 'tools', 'writing'];
 
 test('all existing page routes remain, with no direct payment enrollment', () => {
   const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((entry) => entry.isDirectory() ? walk(join(dir, entry.name)) : [join(dir, entry.name)]);
@@ -22,17 +22,17 @@ test('all existing page routes remain, with no direct payment enrollment', () =>
 test('home and shared metadata lead with lower-risk workflow services', () => {
   const home = normalize(page());
   const layout = read('src/app/layout.tsx');
-  assert.match(home, /workflow review and integration for small software teams/);
+  assert.match(home, /AI implementation for small businesses/);
   assert.match(home, /confirm fit and scope before payment/);
   assert.match(home, /No MCP setup is required for this conversation/);
   assert.match(home, /own agreed scope, effort, price, and payment path/);
   assert.match(home, /id="contact"/);
   assert.match(home, /do not send credentials, customer records, or confidential data/i);
-  assert.match(layout, /Practical AI Workflow Services/);
+  assert.match(layout, /AI Implementation for Small Businesses/);
   assert.doesNotMatch(layout, /Governed AI for Regulated Industries/);
   const nav = layout.slice(layout.indexOf('const nav ='), layout.indexOf('export default'));
   assert.doesNotMatch(nav, /aios|fusional-canvas|ai-policy-review/);
-  assert.match(nav, /\/#offers/);
+  assert.match(nav, /\/small-business-ai/);
   assert.doesNotMatch(home, /ai-policy-review|smaller regulated operators/);
 });
 

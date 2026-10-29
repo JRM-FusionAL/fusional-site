@@ -44,31 +44,31 @@ const products = [
 
 const serviceOffers = [
   {
-    title: "Review one workflow",
-    price: "Understand it",
-    terms: "A defined problem and practical next steps",
-    body: "Walk through the task, tools, inputs, and current workaround. Identify where manual effort or unreliable AI output gets in the way, what needs human review, and what a useful result would look like. No MCP setup is required for this conversation.",
+    title: "Find the right first task",
+    price: "Start small",
+    terms: "One recurring task and a named owner",
+    body: "Show me how your team handles an inquiry, prepares a response, or passes work to the next person. We will decide whether AI, ordinary automation, or a simpler process fits. No MCP setup is required for this conversation.",
     href: BOOKING_URL,
-    details: "#contact",
+    details: "/small-business-ai",
     cta: "Discuss your workflow",
   },
   {
-    title: "Scoped integration",
-    price: "Connect it",
+    title: "Implement one workflow",
+    price: "Put it to work",
     terms: "Agreed scope and price before work begins",
-    body: "Connect the tools needed for one internal workflow. Agree the inputs, access, approval steps, acceptance checks, and exclusions before building. Get a walkthrough and written handoff your team can use. Each engagement has its own agreed scope, effort, price, and payment path.",
+    body: "Set up one workflow in your existing tools: summarize an inquiry, prepare a draft response, and put the next step in front of the right person. A person approves customer messages. Each engagement has its own agreed scope, effort, price, and payment path.",
     href: BOOKING_URL,
-    details: "#contact",
-    cta: "Discuss an integration",
+    details: "/small-business-ai",
+    cta: "Discuss an implementation",
   },
   {
-    title: "Ongoing workflow review",
-    price: "Keep it useful",
-    terms: "For an existing workflow with recurring changes",
-    body: "Review changes to tools, access, and workflow behavior against an existing baseline. Agree the review cadence and limits around actual recurring work. The existing Agent Ops Retainer is $2,000/month for up to eight total hours of manual review, calls, and advisory.",
+    title: "Test it and hand it over",
+    price: "Own the process",
+    terms: "Checks, instructions, and a walkthrough",
+    body: "Try the workflow on agreed examples, including missing information and failures. Your team gets written instructions, a review checklist, and a way to pause it and return to the manual process. Support beyond the agreed handoff is scoped separately.",
     href: BOOKING_URL,
-    details: "/agent-ops-retainer",
-    cta: "Discuss ongoing review",
+    details: "/small-business-ai",
+    cta: "Discuss your workflow",
   },
 ];
 
@@ -102,16 +102,15 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-24 md:pt-40">
-          <p className="eyebrow mb-4">Practical AI workflow services</p>
+          <p className="eyebrow mb-4">AI implementation for small businesses</p>
           <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
-            Make one AI workflow work for your team.
+            Less time sorting inquiries. More time doing the work.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            Practical AI workflow review and integration for small software teams.
-            Start with one internal task: preparing a weekly report, finding
-            information in team documents, or drafting an internal update.
-            Agree what it should do, check the result, and give your team a
-            clear handoff.
+            I help small businesses put AI to work on one recurring task.
+            Start with customer inquiries: summarize the request, draft a
+            response for your review, and record the next step in the tools
+            your team already uses.
           </p>
           <p className="mt-4 text-sm italic text-paper/50">
             Keep it{" "}
@@ -140,7 +139,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="eyebrow mb-4">Start with fit</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
-            One real problem. A scope that fits.
+            One useful workflow, from first conversation to handoff.
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {serviceOffers.map((o) => (
@@ -168,8 +167,8 @@ export default function Home() {
           </div>
           <p className="mt-8 text-sm text-paper/60">
             We confirm fit and scope before payment. Start with lower-risk
-            internal work, with clear data boundaries and human approval for
-            consequential actions. Email{" "}
+            work behind the scenes, with clear data boundaries and human
+            approval before a customer message goes out. Email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
               jrm@fusional.dev
             </a>{" "}
@@ -241,10 +240,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24">
           <p className="eyebrow">Start a conversation</p>
           <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
-            What internal workflow would you like to improve?
+            Where does your team keep doing the same work?
           </h2>
           <p className="max-w-xl text-paper/70">
-            Tell us the task, the tools involved, what is not working, and who
+            Tell me the task, the tools involved, what is not working, and who
             owns it. Start with a non-sensitive description; do not send
             credentials, customer records, or confidential data. We will discuss
             fit, agree the outcome and acceptance checks, and quote the work.
