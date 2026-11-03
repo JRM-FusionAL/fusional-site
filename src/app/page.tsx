@@ -32,43 +32,43 @@ function preloadHeroStill() {
 
 const products = [
   {
-    href: "#contact",
-    title: "Scoped implementation",
-    tagline: "Build agreed controls after a paid review",
+    href: "/mcp-access-audit",
+    title: "MCP Access Audit",
+    tagline: "$2,500 · one existing agent/MCP workflow",
     detail:
-      "After a paid audit or review, we quote named changes, prerequisites, acceptance checks, exclusions, and an understandable handoff. MCP implementation starts from $5,000; it is not an automatic next step or a general workflow setup price.",
+      "For teams with a live or imminently deployed agent/MCP workflow and a named owner. A read-only access review, permission map, evidence, findings, and walkthrough. Five business days after agreed prerequisites.",
     image: "/assets/fusional-canvas-hero.webp",
-    cta: "After a review",
+    cta: "Specialist access review",
   },
 ];
 
 const serviceOffers = [
   {
-    title: "Discuss one workflow",
-    price: "Scope first",
-    terms: "Fit before a quote or payment",
-    body: "Tell us what your team is trying to do, where manual work or unreliable output gets in the way, and who owns the process. No MCP setup is required for this conversation. Any new engagement needs its own agreed scope, effort, price, and payment path.",
+    title: "Find the right first task",
+    price: "Start small",
+    terms: "One recurring task and a named owner",
+    body: "Show me how your team handles an inquiry, prepares a response, or passes work to the next person. We will decide whether AI, ordinary automation, or a simpler process fits. No MCP setup is required for this conversation.",
     href: BOOKING_URL,
-    details: "#contact",
+    details: "/small-business-ai",
     cta: "Discuss your workflow",
   },
   {
-    title: "MCP Access Audit",
-    price: "$2,500",
-    terms: "Five business days after prerequisites · one workflow",
-    body: "Only for a live or imminently deployed agent/MCP workflow with a named owner and an access decision to make. Read-only review, permission map, evidence appendix, bounded findings, and a 30-minute walkthrough.",
+    title: "Implement one workflow",
+    price: "Put it to work",
+    terms: "Agreed scope and price before work begins",
+    body: "Set up one workflow in your existing tools: summarize an inquiry, prepare a draft response, and put the next step in front of the right person. A person approves customer messages. Each engagement has its own agreed scope, effort, price, and payment path.",
     href: BOOKING_URL,
-    details: "/mcp-access-audit",
-    cta: "Check audit fit",
+    details: "/small-business-ai",
+    cta: "Discuss an implementation",
   },
   {
-    title: "Agent Ops Retainer",
-    price: "$2,000/mo",
-    terms: "Monthly · up to 8 total hours",
-    body: "Requires a usable existing baseline and recurring changes worth reviewing. Manual review, findings note, calls, and advisory share the eight-hour cap. No continuous monitoring, incident response, or uptime guarantee.",
+    title: "Test it and hand it over",
+    price: "Own the process",
+    terms: "Checks, instructions, and a walkthrough",
+    body: "Try the workflow on agreed examples, including missing information and failures. Your team gets written instructions, a review checklist, and a way to pause it and return to the manual process. Support beyond the agreed handoff is scoped separately.",
     href: BOOKING_URL,
-    details: "/agent-ops-retainer",
-    cta: "Discuss recurring review",
+    details: "/small-business-ai",
+    cta: "Discuss your workflow",
   },
 ];
 
@@ -102,15 +102,15 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-24 md:pt-40">
-          <p className="eyebrow mb-4">Practical AI workflow services</p>
+          <p className="eyebrow mb-4">AI implementation for small businesses</p>
           <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
-            Make one AI workflow work for your team.
+            Less time sorting inquiries. More time doing the work.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            FusionAL starts with your workflow, not a platform purchase.
-            We focus first on lower-risk internal work for non-regulated teams:
-            understand the problem, agree a bounded outcome, and define the
-            review or integration work and handoff needed.
+            I help small businesses put AI to work on one recurring task.
+            Start with customer inquiries: summarize the request, draft a
+            response for your review, and record the next step in the tools
+            your team already uses.
           </p>
           <p className="mt-4 text-sm italic text-paper/50">
             Keep it{" "}
@@ -139,7 +139,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <p className="eyebrow mb-4">Start with fit</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
-            One real problem. A scope that fits.
+            One useful workflow, from first conversation to handoff.
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {serviceOffers.map((o) => (
@@ -166,8 +166,9 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-sm text-paper/60">
-            We confirm fit and scope before payment. Lower-risk does not mean
-            no privacy, security, contractual, or legal obligations. Email{" "}
+            We confirm fit and scope before payment. Start with lower-risk
+            work behind the scenes, with clear data boundaries and human
+            approval before a customer message goes out. Email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
               jrm@fusional.dev
             </a>{" "}
@@ -181,9 +182,9 @@ export default function Home() {
       </section>
 
       <section id="implementation" className="mx-auto max-w-6xl px-6 py-24">
-        <p className="eyebrow mb-4">Implementation</p>
+        <p className="eyebrow mb-4">Already using MCP?</p>
         <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
-          Implementation follows a paid review and a written scope.
+          A focused access review when your workflow needs it.
         </h2>
         <div className="grid gap-8">
           {products.map((p) => (
@@ -218,16 +219,15 @@ export default function Home() {
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <p className="eyebrow mb-4">Specialist policy work and project background</p>
+          <p className="eyebrow mb-4">Tools and project background</p>
           <p className="max-w-2xl text-sm leading-relaxed text-paper/60">
-            The AI Use Policy Review remains a separate $3,500 specialist
-            service for smaller regulated operators with staff AI-use questions,
-            not the default entry for ordinary workflow work. AIOS and Canvas
-            are historical or exploratory projects, not current fixed-price
-            enrollment. Agentstack is an open-source configuration tool.
+            MCP is relevant when your workflow uses it. After a paid audit or
+            review, MCP implementation starts from $5,000 under a separate
+            written scope. General workflow work is quoted individually.
+            AIOS and Canvas are historical or exploratory projects.
+            Agentstack is an open-source configuration tool.
           </p>
           <div className="mt-5 flex flex-wrap gap-5 text-sm">
-            <Link href="/ai-policy-review" className="text-gold underline-offset-4 hover:underline">Specialist AI policy review</Link>
             <Link href="/aios" className="text-gold underline-offset-4 hover:underline">AIOS background</Link>
             <Link href="/fusional-canvas" className="text-gold underline-offset-4 hover:underline">Canvas exploration</Link>
             <Link href="/agentstack" className="text-gold underline-offset-4 hover:underline">Agentstack</Link>
@@ -240,13 +240,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24">
           <p className="eyebrow">Start a conversation</p>
           <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
-            What internal workflow would you like to improve?
+            Where does your team keep doing the same work?
           </h2>
           <p className="max-w-xl text-paper/70">
-            Tell us the task, the tools involved, what is not working, and who
+            Tell me the task, the tools involved, what is not working, and who
             owns it. Start with a non-sensitive description; do not send
             credentials, customer records, or confidential data. We will discuss
-            fit before proposing work. No existing package has to fit every need.
+            fit, agree the outcome and acceptance checks, and quote the work.
           </p>
           <a
             href="mailto:jrm@fusional.dev"
