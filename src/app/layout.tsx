@@ -1,27 +1,39 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Link from "next/link";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
+// Body copy. Every route renders Inter in the first frame, so it keeps its
+// preload — this is the one font worth spending high-priority bandwidth on.
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
+// Headings only (h1-h3 and .font-display). Preloading it put 22 KB of
+// High-priority font fetch in front of the hero image on every route, to win a
+// swap nobody sees: `display: swap` paints the heading immediately in the
+// fallback, and next/font's metric-adjusted fallback means the later swap
+// changes the letterforms without moving the layout. LCP is recorded on that
+// first paint, so the deferred fetch costs nothing that gets measured.
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fusional.dev"),
-  title: "FusionAL — Governed AI for Regulated Industries",
+  title: "FusionAL — Practical AI Workflow Services",
   description:
-    "Keep it Flowing while Always Knowing. MCP governance gateways, FusionAL Canvas architecture planning, and done-for-you AI operating systems.",
+    "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
   openGraph: {
-    title: "FusionAL — Governed AI for Regulated Industries",
+    title: "FusionAL — Practical AI Workflow Services",
     description:
-      "MCP governance gateways, FusionAL Canvas architecture planning, and done-for-you AI operating systems.",
+      "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
     url: "https://fusional.dev",
     siteName: "FusionAL",
     images: [{ url: "/assets/og-card.jpg", width: 1200, height: 630 }],
@@ -29,16 +41,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FusionAL — Governed AI for Regulated Industries",
+    title: "FusionAL — Practical AI Workflow Services",
     description:
-      "MCP governance gateways, FusionAL Canvas planning, and done-for-you AI operating systems.",
+      "Practical AI workflow review and scoped integration for lower-risk internal work. Start with a conversation, agree one useful outcome, and plan an understandable handoff.",
     images: ["/assets/og-card.jpg"],
   },
 };
 
 const nav = [
-  { href: "/fusional-canvas", label: "FusionAL Canvas" },
-  { href: "/aios", label: "AIOS" },
+  { href: "/#offers", label: "Services" },
+  { href: "/mcp-access-audit", label: "MCP Audit" },
+  { href: "/agent-ops-retainer", label: "Agent Ops" },
   { href: "/tools", label: "Open Source" },
   { href: "/writing", label: "Writing" },
 ];
@@ -78,12 +91,12 @@ export default function RootLayout({
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="mailto:jrm@fusional.dev"
+              <Link
+                href="/#contact"
                 className="whitespace-nowrap rounded-full border border-gold px-3 py-1 text-gold transition-colors hover:bg-gold hover:text-ink sm:px-4 sm:py-1.5"
               >
                 Contact
-              </a>
+              </Link>
             </nav>
           </div>
         </header>
@@ -107,6 +120,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <SpeedInsights />
       </body>
     </html>
   );

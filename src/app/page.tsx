@@ -1,60 +1,116 @@
 import Image from "next/image";
 import Link from "next/link";
+import ReactDOM from "react-dom";
+import { HeroVideo } from "@/components/hero-video";
+import { BOOKING_URL } from "@/lib/links";
+
+const HERO_WIDTHS = [960, 1440, 1920, 2560];
+
+const HERO_STILL = {
+  avif: HERO_WIDTHS.map((w) => `/assets/hero-still-${w}.avif ${w}w`).join(", "),
+  webp: HERO_WIDTHS.map((w) => `/assets/hero-still-${w}.webp ${w}w`).join(", "),
+};
+
+const HERO_SIZES = "100vw";
+
+// The hero still is the LCP element, but it lives in a <picture> in the body —
+// nothing in <head> points at it, so the browser cannot start it until it has
+// parsed past every preload the framework put there first. This hoists it into
+// <head> ahead of that work. `type` makes the hint self-cancelling: a browser
+// without AVIF ignores the whole link rather than fetching bytes it cannot
+// decode, and falls through to the <source> chain below. The srcSet/sizes must
+// stay byte-identical to the AVIF <source> or the browser fetches twice.
+function preloadHeroStill() {
+  ReactDOM.preload(`/assets/hero-still-1440.avif`, {
+    as: "image",
+    type: "image/avif",
+    imageSrcSet: HERO_STILL.avif,
+    imageSizes: HERO_SIZES,
+    fetchPriority: "high",
+  });
+}
 
 const products = [
   {
-    href: "/fusional-canvas",
-    title: "FusionAL Canvas",
-    tagline: "Architecture planning canvas with built-in AI governance",
+    href: "#contact",
+    title: "Scoped implementation",
+    tagline: "Build agreed controls after a paid review",
     detail:
-      "Claude-native collaborative planning for regulated industries. Every AI action passes through a FusionAL governance gateway — auditable, policy-enforced, self-hosted.",
-    image: "/assets/fusional-canvas-hero.png",
-    cta: "For regulated teams",
+      "After a paid audit or review, we quote named changes, prerequisites, acceptance checks, exclusions, and an understandable handoff. MCP implementation starts from $5,000; it is not an automatic next step or a general workflow setup price.",
+    image: "/assets/fusional-canvas-hero.webp",
+    cta: "After a review",
+  },
+];
+
+const serviceOffers = [
+  {
+    title: "Discuss one workflow",
+    price: "Scope first",
+    terms: "Fit before a quote or payment",
+    body: "Tell us what your team is trying to do, where manual work or unreliable output gets in the way, and who owns the process. No MCP setup is required for this conversation. Any new engagement needs its own agreed scope, effort, price, and payment path.",
+    href: BOOKING_URL,
+    details: "#contact",
+    cta: "Discuss your workflow",
   },
   {
-    href: "/aios",
-    title: "AIOS Setup Service",
-    tagline: "A done-for-you AI operating system on Claude Code",
-    detail:
-      "Cadence, routines, memory, and guardrails — installed and tuned for solopreneurs and small teams. From a $97 DIY template to full white-glove setup.",
-    image: "/assets/aios-hero.png",
-    cta: "For solo operators",
+    title: "MCP Access Audit",
+    price: "$2,500",
+    terms: "Five business days after prerequisites · one workflow",
+    body: "Only for a live or imminently deployed agent/MCP workflow with a named owner and an access decision to make. Read-only review, permission map, evidence appendix, bounded findings, and a 30-minute walkthrough.",
+    href: BOOKING_URL,
+    details: "/mcp-access-audit",
+    cta: "Check audit fit",
   },
   {
-    href: "/tools",
-    title: "Open Source",
-    tagline: "The tooling behind it all, in the open",
-    detail:
-      "agentstack-init, FusionAL-Recall, mcp-consulting-kit, and the FusionAL governance gateway. Battle-tested on our own stack first.",
-    image: "/assets/tools-gates.png",
-    cta: "On GitHub",
+    title: "Agent Ops Retainer",
+    price: "$2,000/mo",
+    terms: "Monthly · up to 8 total hours",
+    body: "Requires a usable existing baseline and recurring changes worth reviewing. Manual review, findings note, calls, and advisory share the eight-hour cap. No continuous monitoring, incident response, or uptime guarantee.",
+    href: BOOKING_URL,
+    details: "/agent-ops-retainer",
+    cta: "Discuss recurring review",
   },
 ];
 
 export default function Home() {
+  preloadHeroStill();
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-line">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/assets/hero-fusional.png"
-          className="absolute inset-0 h-full w-full object-cover opacity-70"
-        >
-          <source src="/assets/hero-loop.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 opacity-70">
+          <picture>
+            <source
+              type="image/avif"
+              sizes={HERO_SIZES}
+              srcSet={HERO_STILL.avif}
+            />
+            <source
+              type="image/webp"
+              sizes={HERO_SIZES}
+              srcSet={HERO_STILL.webp}
+            />
+            <img
+              src="/assets/hero-still-1440.jpg"
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </picture>
+          <HeroVideo />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-        <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-40">
-          <p className="eyebrow mb-4">Governed AI infrastructure</p>
-          <h1 className="max-w-3xl text-5xl font-bold leading-tight md:text-7xl">
-            AI that passes through the gate.
+        <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-end px-6 pb-20 pt-24 md:pt-40">
+          <p className="eyebrow mb-4">Practical AI workflow services</p>
+          <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
+            Make one AI workflow work for your team.
           </h1>
           <p className="mt-6 max-w-xl text-lg text-paper/80">
-            FusionAL builds governance gateways, planning tools, and operating
-            systems that let regulated teams and solo operators run AI with
-            confidence — self-hosted, auditable, yours.
+            FusionAL starts with your workflow, not a platform purchase.
+            We focus first on lower-risk internal work for non-regulated teams:
+            understand the problem, agree a bounded outcome, and define the
+            review or integration work and handoff needed.
           </p>
           <p className="mt-4 text-sm italic text-paper/50">
             Keep it{" "}
@@ -62,40 +118,86 @@ export default function Home() {
             while always{" "}
             <span className="text-gold not-italic font-semibold">Knowing</span>.
           </p>
-          <div className="mt-10 flex gap-4">
+          <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/fusional-canvas"
+              href="#contact"
               className="rounded-full bg-molten px-6 py-3 font-medium text-ink transition-colors hover:bg-gold"
             >
-              Explore FusionAL Canvas
+              Discuss your workflow
             </Link>
-            <Link
-              href="/aios"
+            <a
+              href="#offers"
               className="rounded-full border border-paper/30 px-6 py-3 font-medium transition-colors hover:border-gold hover:text-gold"
             >
-              Get an AIOS
-            </Link>
+              See how to start
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <p className="eyebrow mb-4">What we build</p>
-        <h2 className="mb-16 max-w-2xl text-3xl font-bold md:text-4xl">
-          Two products, one governed stack.
+      <section id="offers" className="border-b border-line">
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <p className="eyebrow mb-4">Start with fit</p>
+          <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
+            One real problem. A scope that fits.
+          </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {serviceOffers.map((o) => (
+              <div key={o.title} className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8">
+                <p className="text-sm font-medium text-paper/70">{o.title}</p>
+                <p className="mt-2 font-display text-4xl font-bold text-gold">{o.price}</p>
+                <p className="mt-1 font-mono text-xs text-paper/50">{o.terms}</p>
+                <p className="mt-4 flex-1 leading-relaxed text-paper/60">{o.body}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={o.href}
+                    className="inline-block rounded-full bg-molten px-6 py-3 text-center text-sm font-semibold text-ink transition-colors hover:bg-molten-deep"
+                  >
+                    {o.cta}
+                  </a>
+                  <Link
+                    href={o.details}
+                    className="inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
+                  >
+                    {o.details === "#contact" ? "What to share" : "What’s included"}
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-paper/60">
+            We confirm fit and scope before payment. Lower-risk does not mean
+            no privacy, security, contractual, or legal obligations. Email{" "}
+            <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
+              jrm@fusional.dev
+            </a>{" "}
+            or{" "}
+            <a href={BOOKING_URL} className="text-gold underline-offset-4 hover:underline">
+              book a call
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section id="implementation" className="mx-auto max-w-6xl px-6 py-24">
+        <p className="eyebrow mb-4">Implementation</p>
+        <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
+          Implementation follows a paid review and a written scope.
         </h2>
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8">
           {products.map((p) => (
             <Link
               key={p.href}
               href={p.href}
-              className="group overflow-hidden rounded-2xl border border-line bg-ink-2 transition-colors hover:border-gold"
+              className="group grid overflow-hidden rounded-2xl border border-line bg-ink-2 transition-colors hover:border-gold md:grid-cols-2"
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video min-h-56 overflow-hidden">
                 <Image
                   src={p.image}
                   alt=""
                   fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -115,14 +217,36 @@ export default function Home() {
       </section>
 
       <section className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <p className="eyebrow mb-4">Specialist policy work and project background</p>
+          <p className="max-w-2xl text-sm leading-relaxed text-paper/60">
+            The AI Use Policy Review remains a separate $3,500 specialist
+            service for smaller regulated operators with staff AI-use questions,
+            not the default entry for ordinary workflow work. AIOS and Canvas
+            are historical or exploratory projects, not current fixed-price
+            enrollment. Agentstack is an open-source configuration tool.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-5 text-sm">
+            <Link href="/ai-policy-review" className="text-gold underline-offset-4 hover:underline">Specialist AI policy review</Link>
+            <Link href="/aios" className="text-gold underline-offset-4 hover:underline">AIOS background</Link>
+            <Link href="/fusional-canvas" className="text-gold underline-offset-4 hover:underline">Canvas exploration</Link>
+            <Link href="/agentstack" className="text-gold underline-offset-4 hover:underline">Agentstack</Link>
+            <Link href="/tools" className="text-gold underline-offset-4 hover:underline">Open-source tools</Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="scroll-mt-32 border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-24">
           <p className="eyebrow">Start a conversation</p>
           <h2 className="max-w-2xl text-3xl font-bold md:text-4xl">
-            Running AI in a regulated environment — or drowning solo?
+            What internal workflow would you like to improve?
           </h2>
           <p className="max-w-xl text-paper/70">
-            Engagements from $97 templates to $15K governed deployments. One
-            builder, no handoffs.
+            Tell us the task, the tools involved, what is not working, and who
+            owns it. Start with a non-sensitive description; do not send
+            credentials, customer records, or confidential data. We will discuss
+            fit before proposing work. No existing package has to fit every need.
           </p>
           <a
             href="mailto:jrm@fusional.dev"
@@ -130,6 +254,7 @@ export default function Home() {
           >
             jrm@fusional.dev
           </a>
+          <a href={BOOKING_URL} className="text-gold underline-offset-4 hover:underline">Book a workflow conversation</a>
         </div>
       </section>
     </>

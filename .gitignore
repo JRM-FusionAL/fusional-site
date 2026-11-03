@@ -42,3 +42,7 @@ next-env.d.ts
 
 # git worktrees (scratch)
 .worktrees/
+
+# Maintenance cron output — machine-local noise.
+MAINTENANCE.md
+.hermes/maintenance.log

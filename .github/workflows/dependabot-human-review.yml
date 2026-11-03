@@ -1,0 +1,26 @@
+name: Dependabot human review
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  flag-review:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]' && github.event.pull_request.user.login == 'dependabot[bot]'
+    steps:
+      - name: Flag dependency proposals for human review
+        shell: bash
+        run: |
+          if ! gh api "repos/$GH_REPO/labels/ready-for-human" >/dev/null 2>&1; then
+            gh label create ready-for-human --repo "$GH_REPO" --color ededed --description "Requires human implementation or review"
+          fi
+          gh pr edit "$PR_URL" --repo "$GH_REPO" --add-label ready-for-human
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
