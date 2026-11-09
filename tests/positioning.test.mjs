@@ -25,7 +25,8 @@ test('home and shared metadata lead with lower-risk workflow services', () => {
   assert.match(home, /AI implementation for small businesses/);
   assert.match(home, /confirm fit and scope before payment/);
   assert.match(home, /No MCP setup is required for this conversation/);
-  assert.match(home, /own agreed scope, effort, price, and payment path/);
+  assert.match(home, /workflowTiers/);
+  assert.match(normalize(page('small-business-ai')), /workflowTiers/);
   assert.match(home, /id="contact"/);
   assert.match(home, /do not send credentials, customer records, or confidential data/i);
   assert.match(layout, /AI Implementation for Small Businesses/);
@@ -37,6 +38,12 @@ test('home and shared metadata lead with lower-risk workflow services', () => {
 });
 
 test('current prices, prerequisites and limits remain explicit', () => {
+  const tiers = normalize(read('src/lib/offers.ts'));
+  for (const price of ['$750', '$1,500', '$300/month']) assert.ok(tiers.includes(`price: "${price}"`), price);
+  assert.doesNotMatch(tiers, /STRIPE_LINKS|buy\.stripe\.com/);
+  assert.match(tiers, /up to 2 apps/);
+  assert.match(tiers, /up to 3 apps/);
+  assert.match(tiers, /up to 2 hours a month with no rollover/);
   const audit = normalize(page('mcp-access-audit'));
   assert.match(audit, /\$2,500/);
   assert.match(audit, /live or imminently deployed agent\/MCP workflow and a named owner are required/);

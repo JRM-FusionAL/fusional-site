@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BOOKING_URL, CONTACT_EMAIL } from "@/lib/links";
+import { workflowTiers } from "@/lib/offers";
 
 export const metadata: Metadata = {
   title: "AI Implementation for Small Businesses | FusionAL",
@@ -27,7 +28,7 @@ export default function SmallBusinessAI() {
           <a href={BOOKING_URL} className="rounded-full bg-molten px-6 py-3 font-semibold text-ink hover:bg-gold">Discuss one task</a>
           <a href={`mailto:${CONTACT_EMAIL}`} className="rounded-full border border-gold px-6 py-3 text-gold">Email Jonathan</a>
         </div>
-        <p className="mt-5 max-w-xl text-sm text-paper/55">Scope and a fixed project quote come before payment. Software subscriptions and any ongoing support are agreed separately. Timing is confirmed after the tools, access, and examples are understood.</p>
+        <p className="mt-5 max-w-xl text-sm text-paper/55">Fixed prices, confirmed after scoping and before payment. Software subscriptions are separate. Timing is confirmed after the tools, access, and examples are understood.</p>
       </section>
 
       <section className="border-y border-line bg-ink-2/40">
@@ -69,6 +70,25 @@ export default function SmallBusinessAI() {
           <p>The first engagement covers one agreed workflow, a written test record, and a handoff. Extra tools, additional workflows, and ongoing support require a separate scope.</p>
           <p>Customer messages require human approval. The first workflow does not make payments, commit to prices or appointments, or make clinical, legal, financial, or employment decisions.</p>
           <p>There is no guaranteed sales increase or time-saving claim. We agree what to measure, check the result, and compare it with your existing process.</p>
+        </div>
+      </section>
+
+      <section id="pricing" className="border-t border-line">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <p className="eyebrow mb-4">Pricing</p>
+          <h2 className="max-w-2xl text-3xl font-bold">One workflow, one fixed price.</h2>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {workflowTiers.map((tier) => (
+              <article key={tier.title} className="flex flex-col rounded-2xl border border-line bg-ink-2 p-7">
+                <p className="text-sm font-medium text-paper/70">{tier.title}</p>
+                <p className="mt-2 font-display text-4xl font-bold text-gold">{tier.price}</p>
+                <p className="mt-1 font-mono text-xs text-paper/50">{tier.terms}</p>
+                <p className="mt-4 flex-1 leading-relaxed text-paper/65">{tier.body}</p>
+                <a href={tier.href} className="mt-6 inline-block rounded-full bg-molten px-6 py-3 text-center text-sm font-semibold text-ink hover:bg-gold">{tier.cta}</a>
+              </article>
+            ))}
+          </div>
+          <p className="mt-6 max-w-2xl text-sm text-paper/60">We confirm which tier fits before you pay. If the work falls outside it, you get a revised quote before anything continues.</p>
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import ReactDOM from "react-dom";
 import { HeroVideo } from "@/components/hero-video";
 import { BOOKING_URL } from "@/lib/links";
+import { workflowTiers } from "@/lib/offers";
 
 const HERO_WIDTHS = [960, 1440, 1920, 2560];
 
@@ -39,36 +40,6 @@ const products = [
       "For teams with a live or imminently deployed agent/MCP workflow and a named owner. A read-only access review, permission map, evidence, findings, and walkthrough. Five business days after agreed prerequisites.",
     image: "/assets/fusional-canvas-hero.webp",
     cta: "Specialist access review",
-  },
-];
-
-const serviceOffers = [
-  {
-    title: "Find the right first task",
-    price: "Start small",
-    terms: "One recurring task and a named owner",
-    body: "Show me how your team handles an inquiry, prepares a response, or passes work to the next person. We will decide whether AI, ordinary automation, or a simpler process fits. No MCP setup is required for this conversation.",
-    href: BOOKING_URL,
-    details: "/small-business-ai",
-    cta: "Discuss your workflow",
-  },
-  {
-    title: "Implement one workflow",
-    price: "Put it to work",
-    terms: "Agreed scope and price before work begins",
-    body: "Set up one workflow in your existing tools: summarize an inquiry, prepare a draft response, and put the next step in front of the right person. A person approves customer messages. Each engagement has its own agreed scope, effort, price, and payment path.",
-    href: BOOKING_URL,
-    details: "/small-business-ai",
-    cta: "Discuss an implementation",
-  },
-  {
-    title: "Test it and hand it over",
-    price: "Own the process",
-    terms: "Checks, instructions, and a walkthrough",
-    body: "Try the workflow on agreed examples, including missing information and failures. Your team gets written instructions, a review checklist, and a way to pause it and return to the manual process. Support beyond the agreed handoff is scoped separately.",
-    href: BOOKING_URL,
-    details: "/small-business-ai",
-    cta: "Discuss your workflow",
   },
 ];
 
@@ -137,12 +108,12 @@ export default function Home() {
 
       <section id="offers" className="border-b border-line">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <p className="eyebrow mb-4">Start with fit</p>
+          <p className="eyebrow mb-4">Pricing</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-bold md:text-4xl">
             One useful workflow, from first conversation to handoff.
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            {serviceOffers.map((o) => (
+          <div className="grid gap-8 lg:grid-cols-3">
+            {workflowTiers.map((o) => (
               <div key={o.title} className="flex flex-col rounded-2xl border border-line bg-ink-2 p-8">
                 <p className="text-sm font-medium text-paper/70">{o.title}</p>
                 <p className="mt-2 font-display text-4xl font-bold text-gold">{o.price}</p>
@@ -156,19 +127,22 @@ export default function Home() {
                     {o.cta}
                   </a>
                   <Link
-                    href={o.details}
+                    href="/small-business-ai"
                     className="inline-block rounded-full border border-paper/30 px-6 py-3 text-center text-sm font-medium transition-colors hover:border-gold hover:text-gold"
                   >
-                    {o.details === "#contact" ? "What to share" : "What’s included"}
+                    What’s included
                   </Link>
                 </div>
               </div>
             ))}
           </div>
           <p className="mt-8 text-sm text-paper/60">
-            We confirm fit and scope before payment. Start with lower-risk
-            work behind the scenes, with clear data boundaries and human
-            approval before a customer message goes out. Email{" "}
+            Every build starts with a conversation about how your team handles
+            the work today, and whether AI, ordinary automation, or a simpler
+            process fits. No MCP setup is required for this conversation. We
+            confirm fit and scope before payment. Software subscriptions are
+            separate, and work outside the agreed scope gets a revised quote
+            first. A person approves every customer message. Email{" "}
             <a href="mailto:jrm@fusional.dev" className="text-gold underline-offset-4 hover:underline">
               jrm@fusional.dev
             </a>{" "}
@@ -223,7 +197,7 @@ export default function Home() {
           <p className="max-w-2xl text-sm leading-relaxed text-paper/60">
             MCP is relevant when your workflow uses it. After a paid audit or
             review, MCP implementation starts from $5,000 under a separate
-            written scope. General workflow work is quoted individually.
+            written scope. Work beyond the workflow tiers is quoted individually.
             AIOS and Canvas are historical or exploratory projects.
             Agentstack is an open-source configuration tool.
           </p>
