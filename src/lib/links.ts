@@ -10,10 +10,13 @@ export const STRIPE_LINKS = {
   accessAudit: "https://buy.stripe.com/8x25kC3QE8qWgOt2d533W05", // $2,500 one-time
   aiUsePolicy: "https://buy.stripe.com/dRmbJ00EsePk69PeZR33W06", // $3,500 one-time
   agentOpsRetainer: "https://buy.stripe.com/aFabJ05YM8qW2XD19133W07", // $2,000 / month
-  aiosTemplate: "https://buy.stripe.com/7sY4gyevi22y41HcRJ33W00",
-  aiosGuided: "https://buy.stripe.com/28E8wO2MA4aGaq5bNF33W02",
-  aiosWhiteGlove: "https://buy.stripe.com/14A9AScnafTo7dT04X33W01",
-  canvasConsulting: "https://buy.stripe.com/bJeaEWbj6cHc7dT3h933W04",
+  // Workflow tiers, created 2026-11-10. Sent after scope is agreed on a call;
+  // site buttons still go to booking first.
+  starterWorkflow: "https://buy.stripe.com/28EfZg2MAgXs69P8Bt33W08", // $750 one-time
+  standardWorkflow: "https://buy.stripe.com/7sY8wObj66iOfKpeZR33W09", // $1,500 one-time
+  care: "https://buy.stripe.com/3cI5kC4UIgXscydaJB33W0a", // $300 / month
+  // AIOS ($97/$497/$1,497) and Canvas consulting ($3,000) links were
+  // deactivated in Stripe on 2026-11-10.
   // The $1,500 MCP Token Audit link stays live in Stripe for prospects quoted
   // that price before the reprice, but is no longer offered on the site:
   // https://buy.stripe.com/00w4gycnagXs2XDeZR33W03
